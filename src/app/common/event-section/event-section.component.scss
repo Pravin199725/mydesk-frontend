@@ -1,0 +1,97 @@
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
+
+
+
+h1 {
+    width: 100%;
+    // text-align: center; 
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+h1 span {
+    // z-index: 100;
+    background: #ebecf0;
+    padding: 0 15px 0 0;
+}
+
+h5 {
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+}
+
+.card-fixed {
+    height: 100%;
+    min-height: 45px;
+    max-height: 45px;
+    width: 100%;
+    max-width: 100px;
+    min-width: 100px;
+    margin-right: 2rem;
+}
+
+.card-desing {
+    background: #354658;
+    height: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.announcment-card-body {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: left;
+    padding-left: 10px;
+    width: 100%;
+    font-size: 14px;
+    color: white;
+}
+.annoucement-date-box {
+    background-color: #28BAA2;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: white;
+}
+.p-2{
+    margin-top: 38px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #354658; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8d8d8d; 
+  }
+  .modal-content{
+    border-radius: 12px;
+  }
+  .modal-header{
+      text-align: center; background-color: #1B2D3F; color: #ffffff; border-radius: 10px 10px 0px 0px;
+    }
+  .modal-title{
+    margin: auto;
+  }
+  .modal-footer{
+    border: none;
+  }
+  .modal-footer .btn{
+    text-align: center; background-color: #354658; color: #ffffff;
+  }

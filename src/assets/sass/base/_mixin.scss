@@ -1,0 +1,154 @@
+
+// MEDIA QUERY MANAGER
+
+/*
+0px - 360px:		XS Phone
+360px - 576px: 		Phone
+576px - 768px: 		Tablet Portrait
+768px - 992px:		Tablet Landscape
+992px - 1200px: 	desktop
+1200px - 1920px:	normal Media queries
+1920px and up:  	Full HD
+*/
+
+
+/*
+$breakpoint arguement choices:
+- xs-phone
+- phone
+- tab-port
+- tab-land
+- desktop
+- full-hd
+
+1em = 16px
+*/
+
+@mixin respondMax($breakpoint) {
+	@if $breakpoint == xs-phone {
+		@media (max-width: 22.5em) { @content }; //360px
+	}
+	@if $breakpoint == sm-phone {
+		@media (max-width: 36em) { @content }; //576px
+	}
+	@if $breakpoint == md-tab {
+		@media (max-width: 48em) { @content }; //768px
+	}
+	@if $breakpoint == lg-desktop {
+		@media (max-width: 62em) { @content }; //992px
+	}
+	@if $breakpoint == xl-desktop {
+		@media (max-width: 75em) { @content }; //1200px
+  }
+  @if $breakpoint == hd-desktop {
+    @media (max-width: 90em) { @content }; //1440px
+  }
+	@if $breakpoint == full-hd {
+		@media (min-width: 120em) { @content }; //1920px
+	}
+}
+
+@mixin respondMin($breakpointmin) {
+	@if $breakpointmin == xs-phone {
+		@media (min-width: 22.5em) { @content }; //360px
+	}
+	@if $breakpointmin == sm-phone {
+		@media (min-width: 36em) { @content }; //576px
+	}
+	@if $breakpointmin == md-tab {
+		@media (min-width: 48em) { @content }; //768px
+	}
+	@if $breakpointmin == lg-desktop {
+		@media (min-width: 62em) { @content }; //992px
+	}
+	@if $breakpointmin == xl-desktop {
+		@media (min-width: 75em) { @content }; //1200px
+	}
+	@if $breakpointmin == full-hd {
+		@media (min-width: 120em) { @content }; //1920px
+	}
+}
+
+
+
+
+$rem-baseline: 16px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+
+@function rem-separator($list, $separator: false) {
+  @if $separator == "comma" or $separator == "space" {
+    @return append($list, null, $separator);
+  } 
+  
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+  font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+  $result: ();
+  $separator: rem-separator($values);
+  
+  @each $value in $values {
+    @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
+      $result: append($result, $value / 1rem * $rem-baseline, $separator);
+    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
+      $result: append($result, $value / $rem-baseline * 1rem, $separator);
+    } @else if type-of($value) == "list" {
+      $value-separator: rem-separator($value);
+      $value: rem-convert($to, $value...);
+      $value: rem-separator($value, $value-separator);
+      $result: append($result, $value, $separator);
+    } @else {
+      $result: append($result, $value, $separator);
+    }
+  }
+
+  @return if(length($result) == 1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+  @if $rem-px-only {
+    @return rem-convert(px, $values...);
+  } @else {
+    @return rem-convert(rem, $values...);
+  }
+}
+
+@mixin rem($properties, $values...) {
+  @if type-of($properties) == "map" {
+    @each $property in map-keys($properties) {
+      @include rem($property, map-get($properties, $property));
+    }
+  } @else {
+    @each $property in $properties {
+      @if $rem-fallback or $rem-px-only {
+        #{$property}: rem-convert(px, $values...);
+      }
+      @if not $rem-px-only {
+        #{$property}: rem-convert(rem, $values...);
+      }
+    }
+  }
+}
+
+
+@mixin content-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}

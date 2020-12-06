@@ -1,0 +1,81 @@
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
+
+.navbar {
+  // overflow: hidden;
+  // background-color: #f2f2f2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000000;
+  font-size: 4vw;
+  text-align: center;
+  color:white;
+  padding: 0
+}
+.nav-link{
+  text-align: center;
+}
+.nav-link.active {
+    color: #28BAA2;
+    font-weight: 700;
+}
+
+.nav-link.active #img1{
+  display: none;
+}
+.nav-link #img{
+  display: none;
+}
+.nav-link #img1{
+  display: inline;  
+}
+.nav-link.active #img{
+  display: inline;
+}
+.dropdown-toggle::after {
+  content: none;
+}
+
+.dropdown-menu {
+  margin-bottom: 5px;
+}
+
+.dropdown-menu-arrow {
+  top: -25px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  position: relative !important;
+}
+
+.dropdown.open :before,
+.dropdown.open :after {
+content: none;
+position: absolute !important;
+display: block !important;
+width: 0;
+height: 0;
+border-width: 7px 8px;
+border-style: solid;
+border-color: transparent;
+z-index: 1001;
+}
+.dropdown.open :before {
+bottom: -17px;
+right: -8px;
+border-bottom-color: #ccc;
+}
+.dropdown.open :after {
+bottom: -18px;
+right: -8px;
+border-bottom-color: #fff;
+}
+
+
+
+.dropdown-menu {
+right: 0;
+left: auto;
+}
+

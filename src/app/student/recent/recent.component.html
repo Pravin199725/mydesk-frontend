@@ -1,0 +1,19 @@
+<div *ngIf="!isMobileView">
+
+    <app-header></app-header>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <!-- <app-header></app-header> -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <h1> RECENT </h1>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isMobileView">
+    <app-mobile-header></app-mobile-header>
+    <app-footer [type]="'student'"></app-footer>
+</div>

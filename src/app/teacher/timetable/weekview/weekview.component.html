@@ -1,0 +1,24 @@
+<div style="padding-left:10px; padding-right: 10px; padding-top: 10px;">
+<h1>Timetable</h1>
+<div class="table-responsive-sm weekview">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Time</th>
+        <th scope="col" *ngFor="let data of timeTable.columns" [ngClass]="data === 'Tuesday' ? 'selected' : ''">
+          {{data}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let timetable of timeTable.data">
+        <th scope="row">{{timetable.time}}</th>
+        <td colspan="5"  *ngIf="timetable.recess"><b>RECESS</b></td>
+        <td *ngFor="let data of timetable.data" [ngClass]="data.day === 'Tuesday' ? 'selected' : ''">
+          <b>{{data.subject}}</b><br> {{ data.teacherName }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div> 

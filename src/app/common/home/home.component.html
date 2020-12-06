@@ -1,0 +1,29 @@
+
+<div class="d-flex flex-wrap pt-3">
+    <div class="col-lg-8 col-md-8 col-sm-12 pt-3 ">
+        <div class="row m-0">
+            <h1><span>Courses</span></h1>
+
+            <div class="mt-4" *ngFor="let subject of subjectData"  style="background: white; width: 100%;border-radius: 5px;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                <div class="d-flex justify-content-between p-2">
+                    <div di>
+                        <span style="font-size: 2rem;" class="mr-3" *ngIf="type == 'teacher'">{{subject.class}}</span>
+                        <span style="font-size: 2rem; font-weight: bold;">{{subject.subjectName}}</span>
+                        <button style="border-radius: 5px;font-size: 12px;" class="ml-3" *ngIf="type == 'teacher'">+</button>
+                    </div>
+                    <button style="border-radius: 5px;background: #354658;color: white; width: 150px; height: 40px; font-size: 15px;" (click)="goToCourse()" *ngIf="!isMobileView" ><b>Go to Course</b></button>
+                    <button style="border-radius: 5px;background: #354658;color: white; width: 100px; height: 35px; font-size: 12px;" (click)="goToCourse()" *ngIf="isMobileView" ><b>Go to Course</b></button>
+                </div>
+                <hr style="margin: 0px 5px; border-top:1px solid lightgray; padding-left: 1px;" />
+                <div class="d-flex justify-content-between p-2">
+                    <span style="font-size: 1.2rem;">Teacher name: {{subject.teacherName}} </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12" style="border-left: 2px solid black; padding-bottom: 50px;" *ngIf="!isMobileView">
+        <app-event-section ></app-event-section>
+    </div>
+</div>
