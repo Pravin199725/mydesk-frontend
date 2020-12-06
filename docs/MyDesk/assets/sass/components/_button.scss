@@ -1,0 +1,26 @@
+
+@import "../../sass/base/variables";
+
+.btn {
+    &-outline-primary1 {
+        border: 1px solid $color-primary1;
+        background-color: transparent;
+        color: $color-primary1;
+        font-weight: $semi-bold;
+        &:hover {
+            background-color: $color-primary1;
+            color: white;
+        }
+    }
+
+    &-primary1 {
+        border: 1px solid $color-primary1;
+        background-color: $color-primary1;
+        color: white;
+        font-weight: $semi-bold;
+        &:hover {
+            background-color: white;
+            color: $color-primary1;
+        }
+    }
+}

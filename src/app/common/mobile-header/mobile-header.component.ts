@@ -107,23 +107,21 @@ export class MobileHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   incSize(){
-    var maxHeight = 180;
-    if(+$("#p-2").height() < maxHeight) {
+    var x=document.getElementById("p-2");
+    x.style.height = "180px", x.style.transition = "1s";
 
-        $("#p-2").stop().animate({ height: 180}, 'slow');
-        $('#btn1').hide();
-        $('#btn2').show();
+        
+    document.getElementById("btn1").style.display = "none";
+    document.getElementById("btn2").style.display = "inline";
     }
 
-  }
+  
   decSize(){
-    var maxHeight = 60;
-    if(+$("#p-2").height() > maxHeight) {
+    var x=document.getElementById("p-2");
+    x.style.height = "65px", x.style.transition = "1s";
 
-        $("#p-2").stop().animate({ height: 60}, 'slow');
-        $('#btn2').hide();
-        $('#btn1').show();
+        
+    document.getElementById("btn1").style.display = "inline";
+    document.getElementById("btn2").style.display = "none";
     }
-
-  }
 }

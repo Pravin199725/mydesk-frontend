@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MobileViewService } from 'src/app/services/mobileView/mobile-view.service';
 
 @Component({
@@ -37,7 +38,7 @@ export class GradeComponent implements OnInit {
 
   public openGradeView = false;
 
-  constructor(private responsiveService: MobileViewService) {
+  constructor(private router: Router, private responsiveService: MobileViewService) {
   }
 
   ngOnInit(): void {
@@ -59,5 +60,7 @@ export class GradeComponent implements OnInit {
   closeGrade() {
     this.openGradeView = false;
   }
-
+  goToLec(){
+    this.router.navigate([`/student/lecture`]);
+  }
 }
