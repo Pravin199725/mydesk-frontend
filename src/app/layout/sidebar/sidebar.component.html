@@ -1,0 +1,54 @@
+<nav id="sidebar" class="bg-primary2" >
+    <div class="sidebar-header text-center">
+        <div class="header" style="color:white; padding-top:15px; padding-bottom:15px; border-bottom:1px solid;">
+            <h2 style="font-size:28px">9th - B</h2>
+            <h4>code: AsDajs</h4>
+        </div>
+        <div class="school d-flex flex-row" style="padding-top:20px; color:white;">
+            <img id="sclogo" style="padding-left:10px;" height="40" src="../../../assets/img/school-campus.svg">
+            <h3 style="padding-left:20px; margin-top:18px;">DPS - Pune</h3>
+            
+        </div>
+    </div>
+
+    <div style="padding-top:70px; background:#1B2D3F; height:calc(100% - 125px);">
+
+
+        <div class="nav-link" [routerLink]="getRoute('home')" routerLinkActive="active">
+            <img height="18" id="img" src="../../../assets/img/home.svg">
+            <img height="18" id="img1" src="../../../assets/img/home (1).svg">
+            <span class="ml-3">Home</span>
+        </div>
+
+
+        <div class="nav-link" [routerLink]="getRoute('recent')" routerLinkActive="active">
+            <img height="18" id="img" src="../../../assets/img/notification.svg">
+            <img height="18" id="img1" src="../../../assets/img/notification (1).svg">
+            <span class="ml-3">Recent</span>
+        </div>
+        <div class="nav-link collapsed " data-toggle="collapse" data-target="#submenu1" [routerLink]="getRoute('schedule')" routerLinkActive="active">
+            <img height="18" id="img" src="../../../assets/img/calendar.svg">
+            <img height="18" id="img1" src="../../../assets/img/calendar (1).svg">
+            <span class="ml-3">Schedule</span>
+            
+        </div>
+        <div id="collapse" class="collapse flex-column" id="submenu1" aria-expanded="false">
+            <ul class="flex-column pl-2 nav">
+                <li class="nav-link" id="li" [routerLink]="getRoute('schedule')" routerLinkActive="active" >Timetable</li>
+                <li class="nav-link" id="li1" [routerLink]="getRoute('schedule')" routerLinkActive="active">TT</li>
+                <li class="nav-link" id="li" >Calander</li>
+                <li class="nav-link" id="li1">Cal</li>
+              </ul>
+        </div>
+        <div class="nav-link" [routerLink]="getRoute('message')" routerLinkActive="active">
+            <img height="18" id="img" src="../../../assets/img/chat.svg">
+            <img height="18" id="img1" src="../../../assets/img/chat (1).svg">
+            <span class="ml-3">Message</span>
+        </div>
+        <div class="nav-link" [routerLink]="getRoute('more')" routerLinkActive="active">
+            <img height="18" id="img" src="../../../assets/img/ellipsis.svg">
+            <img height="18" id="img1" src="../../../assets/img/ellipsis (1).svg">
+            <span class="ml-3">More</span>
+        </div>
+    </div>
+</nav>

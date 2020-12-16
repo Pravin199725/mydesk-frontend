@@ -1,0 +1,47 @@
+@import "../base/mixin";
+
+html {
+    @include respondMax(hd-desktop) {
+        @include rem-baseline(70%);
+    }
+    @include respondMax(xl-desktop) {
+        @include rem-baseline(60%);
+    }
+    @include respondMax(lg-desktop) {
+        @include rem-baseline(50%);
+    }
+}
+
+
+.w-45 {
+    width: 45%;
+    @media (max-width: 992px) {
+        width: 80%;
+    }
+}
+
+.icon-circle {
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.2);
+    height: rem(32px);
+    width: rem(32px);
+    border-radius: rem(50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.d-contents {
+    display: contents;
+}
+
+.right-main-content {
+    // width: 89%;
+    width: calc(100vw - 90px);
+    // margin-top: 50px;
+    margin-left: auto;
+}

@@ -1,0 +1,5 @@
+<ul class="progressbar">
+  <li *ngFor="let weekList of weekLists" class="{{ weekList.status + (weekList.isCurrent == true ? ' current' : '') }}">
+    <strong style="font-size: 11px;">{{ weekList.week }}</strong>
+  </li>
+</ul>

@@ -1,0 +1,18 @@
+<div *ngIf="!isMobileView">
+
+    <app-header [ngClass]='{"fixed-top": isMobileView}'></app-header>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <!-- <app-header></app-header> -->
+        <app-sidebar></app-sidebar>
+        <div id="content" style="border-top: 1px solid black">
+            <app-common-message [type]="'student'" [isMobileView]="isMobileView"></app-common-message>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isMobileView">
+    <app-header [ngClass]='{"fixed-top": isMobileView}'></app-header>
+    <app-common-message [type]="'student'" [isMobileView]="isMobileView"></app-common-message>
+    <app-footer [type]="'student'"></app-footer>
+</div>

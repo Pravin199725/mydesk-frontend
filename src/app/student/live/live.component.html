@@ -1,0 +1,45 @@
+<div class="d-flex flex-wrap pt-3" style="padding-bottom: 80px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 pt-5 ">
+            <div class="row m-0">
+               <h1><span>Today</span></h1>
+            </div>
+            <div class="mt-4" *ngFor="let subject of subjectData"  style="background: white; width: 100%;border-radius: 5px;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                <div class="d-flex justify-content-between p-2">
+                    <div>
+                        <span style="font-size: 2rem;" class="mr-3" *ngIf="type == 'teacher'">{{subject.class}}</span>
+                        <span style="font-size: 2rem; font-weight: bold;">{{subject.subjectName}}</span>
+                        <button style="border-radius: 5px;font-size: 12px;" class="ml-3" *ngIf="type == 'teacher'">+</button>
+                    </div>
+                    <button class="btn" style="border-radius: 5px;background: #28baa2;color: white; width: 150px; height: 40px; font-size: 15px;"  *ngIf="!isMobileView" ><b>Join Now</b></button>
+                    <button class="btn" style="border-radius: 5px;background: #28baa2;color: white; width: 100px; height: 25px; font-size: 12px;"  *ngIf="isMobileView" ><b>Join Now</b></button>
+                </div>
+                <hr style="margin: 0px 5px; border-top:1px solid lightgray; padding-left: 1px;" />
+                <div class="d-flex justify-content-between p-2">
+                    <span style="font-size: 1.3rem; color: #757575;">Speaker name: {{subject.teacherName}} </span>
+                    <span style="font-size: 1.3rem; color: #000000;">{{subject.date}} : {{subject.start}} to {{subject.end}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 pt-5 ">
+            <div class="row m-0">
+                <h1><span>Upcomming</span></h1>
+             </div>
+             <div class="mt-4" *ngFor="let subject of upcoming"  style="background: white; width: 100%;border-radius: 5px;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                 <div class="d-flex justify-content-between p-2">
+                     <div>
+                         <span style="font-size: 2rem;" class="mr-3" *ngIf="type == 'teacher'">{{subject.class}}</span>
+                         <span style="font-size: 2rem; font-weight: bold;">{{subject.subjectName}}</span>
+                         <button style="border-radius: 5px;font-size: 12px;" class="ml-3" *ngIf="type == 'teacher'">+</button>
+                     </div>
+                     <button class="btn" style="border-radius: 5px;background: #28baa2;color: white; width: 150px; height: 40px; font-size: 15px;"  *ngIf="!isMobileView" ><b>Join Now</b></button>
+                     <button class="btn" style="border-radius: 5px;background: #28baa2;color: white; width: 100px; height: 25px; font-size: 12px;"  *ngIf="isMobileView" ><b>Join Now</b></button>
+                 </div>
+                 <hr style="margin: 0px 5px; border-top:1px solid lightgray; padding-left: 1px;" />
+                 <div class="d-flex justify-content-between p-2">
+                     <span style="font-size: 1.3rem; color: #757575;">Speaker name: {{subject.teacherName}} </span>
+                     <span style="font-size: 1.3rem; color: #000000;">{{subject.date}} : {{subject.start}} to {{subject.end}} </span>
+                 </div>
+             </div>
+    </div>
+
+</div>

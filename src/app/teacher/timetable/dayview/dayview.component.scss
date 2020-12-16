@@ -1,0 +1,33 @@
+@import "../../../../assets/sass/base/mixin";
+@import "../../../../assets/sass/base/colors";
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+.scrollmenu div {
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.scrollmenu .tab-text {
+  font-size: 2rem;
+}
+
+.day-view.tab-content {
+  table,th,tr {
+    font-size: 1.5rem;
+  }
+}
+.card-fixed {
+    height: 100%;
+    // min-height: 100px;
+    // max-height: 100px;
+    width: 100%;
+    max-width: 100px;
+    min-width: 100px;
+    margin-right: 2rem;
+}

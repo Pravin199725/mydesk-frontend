@@ -1,0 +1,74 @@
+<div *ngIf="!isMobileView">
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper" style="margin-top: 47px;">
+        <!-- Sidebar  -->
+        <!-- <app-header></app-header> -->
+        <div class="fixed-sidebar">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <!-- Page Content  -->
+        <div id="content" class="courseContent ">
+            <app-assignment></app-assignment>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isMobileView">
+    <div style="margin-top: 70px;">
+    <app-header></app-header>
+    <app-assignment></app-assignment>
+    </div>
+    <app-footer [type]="'student'"></app-footer>
+</div>
+<!--<div class="m-5" style="background: white;">
+    <button class="btn  d-flex" (click)="closeGrade()" style="background-color: #354658; color: #ffffff; font-size: 16px;">
+            <span ><img height="14" src="../../../assets/img/chevron-pointing-to-the-left.svg" alt="img"></span><p style="height: 20px; padding-top: 3px; padding-left: 5px; padding-right: 5px;">Back</p>
+    </button><br>
+    <div class="card">
+        <span class="card-header d-flex" style="font-size: 20px; text-align: left; background-color: #1B2D3F; color: #ffffff; padding-left: 50px;">
+            <img class="m-3" height="25" src="../../../assets/img/google-docs.svg" alt="img">
+            <p style="padding-top: 10px; padding-left: 10px;">Quadratic Equation Lecture</p>
+        </span>
+        <div class="card-body" style="font-size: 15px; padding: 50px;">
+            <p>Short Discription About the Assignment In that structure of assignment Short Discription About the
+                Assignment In
+                that structure of assignment Short Discription About the Assignment In that structure of assignment</p>
+            <span class="fw-700">
+                Due Date: 06th November 2020
+            </span>
+        </div>
+        <div class="card-footer" style="padding-right: 50px; padding-left: 50px;" >
+            <div class="d-flex ">
+                
+                <button type="button" class="btn"><img  height="25" src="../../../assets/img/download-to-storage-drive.svg" alt="img"></button>
+                <a href="" style="font-size: 15px; font-weight: bold; padding-left: 10px; padding-top: 10px; color: #000000;">Quadratic Equation.PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion pt-3" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne" style="background-color: #1B2D3F;">
+                <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <span class="courseMonth">
+                        Comments
+                    </span>
+                    <img class="m-2" height="20" src="../../../assets/img/chevron-arrow-down.svg" alt="img">
+
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="cardDetail">
+                        <app-discussions></app-discussions>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

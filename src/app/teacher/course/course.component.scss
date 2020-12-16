@@ -1,0 +1,93 @@
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
+
+.courseContent {
+    width: 100%;
+    background: white;
+    margin-left: 200px;
+}
+
+.courseContentActive {
+    width: 100%;
+    background: white;
+    margin-left: 60px !important;
+}
+
+.nav-tabs {
+    font-size: 12px;
+    justify-content: space-around;
+}
+
+.nav-link.active {
+    color: #94a2ad;
+    font-weight: 700;
+}
+
+.nav-tabs .nav-link {
+    color: black;
+    border: 1px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: #94a2ad;
+}
+
+.wrapper{
+    display: flex;
+    align-items: stretch;
+}
+
+.fixed-sidebar {
+    position: fixed;
+    height: 100%;
+}
+
+.couse-header {
+    color: white;
+    background: linear-gradient(180deg, #409FE5 0%, #0098EE 100%);
+    .nav-tabs  .nav-link:not(.active) {
+        color: white;
+    }
+}
+.courseName {
+    font-size: 30px; 
+    padding-top: 20px;
+}
+
+.courseTeacher {
+    font-size: 20px; 
+    padding-bottom: 20px;
+}
+
+.courseMonths {
+    padding-top: 30px; 
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.courseMonth {
+    font-size: 24px;
+    width: 100%;
+    text-align: left;
+} 
+
+.cardDetail {
+    margin: 5px;
+    overflow: auto;
+    background: #F7F4F4;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.14), 0px 6px 6px rgba(0, 0, 0, 0.12), 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cardDetailBox {
+    margin: 15px;
+    background: #FFFFFF;
+    border: 0.2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px
+}
+
+@media(max-width : 700px) {
+    .courseMonths {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,35 @@
+@import "../base/variables";
+
+.text {
+    &-primary1 {
+        color: $color-primary1;
+    }
+    &-grey-dark {
+        color: $color-grey-dark;
+    }
+    &-grey {
+        color: $color-grey;
+    }
+    &-grey-light {
+        color: $color-grey-light;
+    }
+   
+}
+
+.bg {
+    &-primary1 {
+        background-color: $color-primary1;
+    }
+    &-primary2 {
+        background-color: $color-primary2;
+    }
+    &-grey-dark {
+        background-color: $color-grey-dark;
+    }
+    &-grey {
+        background-color: $color-grey;
+    }
+    &-grey-light {
+        background-color: $color-grey-light;
+    }
+}

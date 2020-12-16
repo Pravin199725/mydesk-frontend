@@ -1,0 +1,68 @@
+<nav class="navbar bg-primary1" >
+    <div class="d-flex align-items-center">
+        <div class="logoDiv ml-4" *ngIf="!isMobileView">
+            <button class="btn btn-default" type="button" (click)="toggle()">
+                <img height="20" src="../../../assets/img/menu-button-of-three-horizontal-lines.svg">
+            </button>
+        </div>
+    
+        <div class="ml-4">
+            <img height="40" src="../../../assets/img/Mydesk_logo.jpg">
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img class="profileImg" height="25"  src="../../../assets/img/man-user.svg" alt="img">
+                <span style="font-size: 16px;color: white;" *ngIf="!isMobileView">{{username}}</span>
+            </button>
+            <div class="dropdown-menu" *ngIf="!isMobileView" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button" style="background-color: #1B2D3F; margin-top: -6px; height: 50px;  border-radius: 10px 10px 0px 0px;">
+                <div class="d-flex m-1" >
+                    <img class="profileImg" height="25" style="margin-left: -10px; margin-top: 7px;"  src="../../../assets/img/man-user.svg" alt="img">
+                    <div class="d-flex flex-column ml-3">
+                        <p style="color: #ffffff;">Ninad</p>
+                        <p style="color: #ffffff; margin-top: -12px; font-size:12px; color: #c4c4c4;">Dsp 9th B</p>
+                    </div>
+                </div>
+                </button>
+                <button class="dropdown-item" type="button">Change Password</button>
+                <button class="dropdown-item" type="button">Edit Profile</button>
+                <button class="dropdown-item" type="button">Notification</button>
+                <button class="dropdown-item" type="button">LogOut</button>
+            </div>
+            <div class="dropdown-menu" *ngIf="isMobileView" aria-labelledby="dropdownMenu2" style="width: 150px;">
+                <button class="dropdown-item" id="drop-btn" type="button" style="background-color: #1B2D3F; margin-top: -6px; height: 50px;  border-radius: 10px 10px 0px 0px;">
+                <div class="d-flex m-1" >
+                    <img class="profileImg" height="25" style="margin-left: -10px; margin-top: 7px;"  src="../../../assets/img/man-user.svg" alt="img">
+                    <div class="d-flex flex-column ml-3">
+                        <p style="color: #ffffff;">Ninad</p>
+                        <p style="color: #ffffff; margin-top: -10px; font-size:12px; color: #c4c4c4;">Dsp 9th B</p>
+                    </div>
+                </div>
+                </button>
+                <button class="dropdown-item" id="drop-item" type="button">Change Password</button>
+                <button class="dropdown-item" id="drop-item" type="button">Edit Profile</button>
+                <button class="dropdown-item" id="drop-item" type="button">Notification</button>
+                <button class="dropdown-item" id="drop-item" type="button">LogOut</button>
+            </div>
+        </div>
+       <!-- <div style="padding-top: 8px; margin-left: -20px; color: #ffffff; font-size: 20px;">Ninad</div>&nbsp;&nbsp;&nbsp;
+        <div class="dropdown mr-3">
+            <button class="btn dropdown-toggle text-center" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img height="28" src="../../../assets/img/settings.svg" alt="img"
+                    >
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">About Us</button>
+                <button class="dropdown-item" type="button">Contact Us</button>
+                <button class="dropdown-item" type="button">Requests</button>
+                <button class="dropdown-item" type="button">Settings</button>
+                <button class="dropdown-item" type="button">Privacy Policy</button>
+            </div>
+        </div>-->
+    </div>
+
+</nav>

@@ -1,0 +1,82 @@
+<div *ngIf="!isMobileView">
+
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper" style="margin-top: 47px;">
+        <!-- Sidebar  -->
+        <!-- <app-header></app-header> -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Page Content  -->
+        <div id="content" class="courseContent ">
+            <div class="d-flex flex-wrap pt-3" style="padding-bottom: 80px;">
+                <div class="col-lg-12 col-md-12 col-sm-12 pt-3 ">
+                    <div class="row m-0">
+                        <h1><span>Recent Activities</span></h1>
+                    </div>
+                        <div class="mt-4" id="mt-4" >
+                            <button type="button" class="btn btn-block" *ngFor="let overdue of overdues" >
+                                <div class="d-flex p-3">
+                                    <span style="align-self: center; margin: 0px 10px;">
+                                        <img *ngIf="overdue.type == 'Live'" height="28" src="../../../assets/img/video-camera.svg" alt="img">
+                                        <img *ngIf="overdue.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">
+                                        <img *ngIf="overdue.type == 'Assignment'" height="28" src="../../../assets/img/edit (1).svg" alt="img">
+                                        <img *ngIf="overdue.type == 'Quiz'" height="28" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                        
+                                    </span>
+                                    <div class="w-100">
+                                         <div *ngIf="overdue.type == 'Live'">Live Class started on Zoom in  <b>{{overdue.msg}}</b> on <b>{{overdue.title}}</b> course on 17th June at <b>{{overdue.endtime}}</b></div>
+                                         <div *ngIf="overdue.type == 'Lecture'">Lecture uploaded in <b>{{overdue.msg}}</b> course titiled <b>{{overdue.title}}</b> on 18th June at <b>{{overdue.endtime}}</b> PM</div>
+                                         <div *ngIf="overdue.type == 'Assignment'">Assignement uploaded in <b>{{overdue.msg}}</b> course titiled <b>{{overdue.title}}</b> on 18th June at <b>{{overdue.endtime}}</b> PM</div>
+                                         <div *ngIf="overdue.type == 'Quiz'">Quiz uploaded in <b>{{overdue.msg}}</b> course titiled <b>{{overdue.title}}</b> on 17th June at <b>{{overdue.endtime}}</b> PM</div>
+                                          
+                                    </div>
+                                    
+                                </div>
+                            </button>
+                        </div>
+            
+                    </div>
+                </div>
+            
+          </div>
+        </div>
+</div>
+
+<div *ngIf="isMobileView">
+    <app-header [ngClass]='{"fixed-top": isMobileView}'></app-header>
+    <div id="content" class="courseContent ">
+        <div class="d-flex flex-wrap pt-3" style="padding-bottom: 80px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 pt-3 ">
+                <div class="row m-0">
+                    <h1 ><span>Recent Activities</span></h1>
+                </div>
+                    <div class="mt-4" >
+                        <button type="button" class="btn btn-block" *ngFor="let overdue of overdues" >
+                            <div class="d-flex p-3">
+                                <span style="align-self: center; margin: 0px 5px;">
+                                    <img *ngIf="overdue.type == 'Live'" height="22" src="../../../assets/img/video-camera.svg" alt="img">
+                                    <img *ngIf="overdue.type == 'Lecture'" height="22" src="../../../assets/img/google-docs.svg" alt="img">
+                                    <img *ngIf="overdue.type == 'Assignment'" height="22" src="../../../assets/img/edit (1).svg" alt="img">
+                                    <img *ngIf="overdue.type == 'Quiz'" height="22" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                    
+                                </span>
+                                <div class="w-100" style="font-size: 12px;">
+                                     <div *ngIf="overdue.type == 'Live'">Live Class started on Zoom in <b>{{overdue.msg}}</b> on <b>{{overdue.title}}</b> course on 17th June at <b>{{overdue.endtime}}</b> PM</div>
+                                     <div *ngIf="overdue.type == 'Lecture'">Lecture uploaded in <b>{{overdue.msg}}</b> course titiled <b>{{overdue.title}}</b> on 18th June at <b>{{overdue.endtime}}</b> PM</div>
+                                     <div *ngIf="overdue.type == 'Assignment'">Assignement uploaded in <b>{{overdue.msg}}</b> course titiled <b>{{overdue.title}}</b> on 18th June at <b>{{overdue.endtime}}</b> PM</div>
+                                     <div *ngIf="overdue.type == 'Quiz'">Quiz uploaded in <b>{{overdue.msg}}</b> course titiled <b>{{overdue.title}}</b> on 17th June at <b>{{overdue.endtime}}</b> PM</div>
+                                      
+                                </div>
+                                
+                            </div>
+                        </button>
+                    </div>
+        
+                </div>
+            </div>
+        
+    </div>
+    <app-footer [type]="'student'"></app-footer>
+</div>

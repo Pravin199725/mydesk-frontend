@@ -1,0 +1,25 @@
+<ul class="scrollmenu nav nav-pills mb-3 flex-nowrap" id="pills-tab" role="tablist">
+  <li class="nav-item mr-2" *ngFor="let timetableData of timeTable">
+    <a class="nav-link tab-text"  [ngClass]="timetableData.day == 'Monday'? 'active': ''" id="{{'pills-' +   timetableData.day + '-tab' }}" href="{{'#pills-' +   timetableData.day}}"  data-toggle="pill" role="tab"  aria-selected="true">{{timetableData.day }}</a>
+  </li>
+</ul>
+<div class="day-view tab-content" id="pills-tabContent">
+  <div *ngFor="let timetableData of timeTable" class="tab-pane fade" [ngClass]="timetableData.day == 'Monday'? 'show active': ''" id="{{'pills-' + timetableData.day}}" role="tabpanel">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          <th scope="col">{{timetableData.day}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timetable of timetableData.data">
+          <th scope="row">{{timetable.time}}</th>
+          <td *ngIf="timetable.recess == 'false'"><b>{{timetable.subject}}</b><br>{{timetable.teacherName}}</td>
+          <td *ngIf="timetable.recess == 'true'">RECESS</td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+  

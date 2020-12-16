@@ -1,0 +1,18 @@
+<div *ngIf="!isMobileView">
+
+    <app-header></app-header>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <app-sidebar [type]="'teacher'"></app-sidebar>
+        <div id="content" style="border-top: 1px solid black">
+            <app-common-message [type]="'teacher'" [isMobileView]="isMobileView"></app-common-message>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isMobileView">
+    <app-header></app-header>
+    <app-common-message [type]="'teacher'" [isMobileView]="isMobileView"></app-common-message>
+    <app-footer [type]="'teacher'"></app-footer>
+
+</div>

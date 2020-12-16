@@ -1,0 +1,110 @@
+
+
+.header {
+    border-bottom: 3px solid black;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.headerMobile {
+    border-bottom: 3px solid black;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+table#customers {
+    border-collapse:separate; 
+    border-spacing:0 5px;
+    .rowData,
+    .rowDataMobile { 
+        background: #F2F2F2;
+        font-size: 14px;
+        td {
+            padding: 15px 0px 15px 10px;
+        }
+        td:first-child { 
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px; 
+        }
+        td:last-child { 
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    }
+    
+    .rowDataMobile {
+        font-size: 12px;
+        td { 
+            font-size: 10px;
+            padding: 5px 0px 5px 5px;
+        }
+    }
+}
+
+
+.submitted {
+    padding: 10px;
+    background: green;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    width: 70% !important;
+}
+
+.overdue {
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    color: red;
+    border: 1px solid green;
+    font-size: 14px;
+    width: 70% !important;
+}
+
+.upcoming {
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    color: green;
+    border: 1px solid green;
+    font-size: 14px;
+    width: 70% !important;
+}
+
+.submittedMobile {
+    padding: 6px;
+    background: green;
+    border-radius: 5px;
+    // width: 25px;
+    color: white;
+    font-size: 10px;
+    width: 80% !important;
+}
+
+.overdueMobile {
+    padding: 6px;
+    background: white;
+    border-radius: 5px;
+    color: red;
+    border: 1px solid green;
+    // width: 25px;
+    font-size: 10px;
+    width: 80% !important;
+}
+
+.upcomingMobile {
+    padding: 6px;
+    background: white;
+    border-radius: 5px;
+    color: green;
+    border: 1px solid green;
+    // width: 25px;
+    font-size: 10px;
+    width: 80% !important;
+}
+
+.courseMonth {
+    font-size: 24px;
+    width: 100%;
+    text-align: left;
+} 

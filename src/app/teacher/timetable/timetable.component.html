@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="wrapper" *ngIf="!isMobileView">
+  <!-- Sidebar  -->
+  <app-sidebar [type]="'teacher'"></app-sidebar>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-weekview></app-weekview>
+  </div>
+</div>
+<div class="wrapper" *ngIf="isMobileView">
+  <!-- Sidebar  -->
+  <app-sidebar  *ngIf="!isMobileView"></app-sidebar>
+  <!-- Page Content  -->
+  <div id="content" class="">
+    <app-dayview></app-dayview>
+    <app-footer [type]="'teacher'"></app-footer>
+  </div>
+  
+</div>

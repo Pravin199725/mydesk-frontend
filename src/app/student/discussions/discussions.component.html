@@ -1,0 +1,174 @@
+<!-- <div *ngIf="!isMobileView">
+
+    <app-header></app-header>
+    <div class="wrapper">
+        <app-sidebar></app-sidebar>
+
+        <div id="content">
+            <h1> Message </h1>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isMobileView">
+    <app-mobile-header></app-mobile-header>
+    <app-footer></app-footer>
+</div> -->
+<div class="{{ 'mesgs ' + (isMobileView ? 'mobile' : '')}}" >
+    <div [ngClass]="isMobileView ? 'msg_mobile_history' : 'msg_history'">
+        <div class="incoming_msg d-flex flex-column">
+            <div [ngClass]="isMobileView ? 'incoming_msg_img_mobile d-flex' : 'incoming_msg_img d-flex'" >
+                <span class="badge badge-secondary teacherBadge">T</span>
+                <img src="https://i.imgur.com/k2PZLZa.png" alt="User avatar"/>
+                <div class="received_msg">
+                    <span class="name">Nirav</span>
+                    <div class="received_withd_msg">
+                        <p class="d-flex justify-content-between" style="background: none;">Hii </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="outgoing_msg">
+            <div class="sent_msg">
+                <p>Hello</p>
+            </div>
+        </div>
+        <div class="incoming_msg d-flex flex-column">
+            <div [ngClass]="isMobileView ? 'incoming_msg_img_mobile d-flex' : 'incoming_msg_img d-flex'" >
+                <span class="badge badge-secondary teacherBadge">T</span>
+                <img src="https://i.imgur.com/k2PZLZa.png" alt="User avatar"/>
+                <div class="received_msg">
+                    <span class="name">Nirav</span>
+                    <div class="received_withd_msg">
+                        <p class="d-flex justify-content-between" style="background: none;">Hii </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="outgoing_msg">
+            <div class="sent_msg">
+                <p>Hello</p>
+            </div>
+        </div>
+        <div class="incoming_msg d-flex flex-column">
+            <div [ngClass]="isMobileView ? 'incoming_msg_img_mobile d-flex' : 'incoming_msg_img d-flex'" >
+                <span class="badge badge-secondary teacherBadge">T</span>
+                <img src="https://i.imgur.com/k2PZLZa.png" alt="User avatar"/>
+                <div class="received_msg">
+                    <span class="name">Nirav</span>
+                    <div class="received_withd_msg">
+                        <p class="d-flex justify-content-between" style="background: none;">Hii </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="outgoing_msg">
+            <div class="sent_msg">
+                <p>Hello</p>
+            </div>
+        </div>
+        <div class="incoming_msg d-flex flex-column">
+            <div [ngClass]="isMobileView ? 'incoming_msg_img_mobile d-flex' : 'incoming_msg_img d-flex'" >
+                <span class="badge badge-secondary teacherBadge">T</span>
+                <img src="https://i.imgur.com/k2PZLZa.png" alt="User avatar"/>
+                <div class="received_msg">
+                    <span class="name">Nirav</span>
+                    <div class="received_withd_msg">
+                        <p class="d-flex justify-content-between" style="background: none;">Hii </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="incoming_msg d-flex flex-column">
+            <div [ngClass]="isMobileView ? 'incoming_msg_img_mobile d-flex' : 'incoming_msg_img d-flex'" >
+                <!-- <span class="badge badge-secondary teacherBadge">T</span> -->
+                <img src="https://i.imgur.com/k2PZLZa.png" alt="User avatar"/>
+                <div class="received_msg">
+                    <span class="name">Nirav</span>
+                    <div class="received_withd_msg">
+                        <p class="d-flex justify-content-between" style="background: none;">How are you ? </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="outgoing_msg">
+            <div class="sent_msg">
+                <p>I am fine</p>
+            </div>
+        </div>
+    </div>
+    <div class="type_msg" *ngIf="!isMobileView">
+        <form class="input_msg_write d-flex">
+            <button class="btn" type="button" style="background: #05728f none repeat scroll 0 0;
+            border: medium none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            font-size: 17px;
+            height: 33px;
+            position: absolute;
+            top: 11px;
+            width: 33px;">
+                +
+            </button>
+            <button class="btn" type="button" style="background: #05728f none repeat scroll 0 0;
+            border: medium none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            font-size: 17px;
+            height: 33px;
+            position: absolute;
+            top: 11px;
+            width: 33px;
+            left: 40px !important;">
+                +
+            </button>
+            <input type="text" class="write_msg" placeholder="Type a message" name="newMessage"
+                style="margin-left: 80px;" />
+            <button class="msg_send_btn" type="button" style="right: 40px !important;">
+                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            </button>
+            <button class="msg_send_btn one" type="button">
+                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+    <div class="type_msg" *ngIf="isMobileView" style="left: 0;">
+        <form class="input_msg_write d-flex">
+            <button class="btn" type="button" style="background: #05728f none repeat scroll 0 0;
+            border: medium none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            font-size: 17px;
+            height: 33px;
+            position: absolute;
+            top: 11px;
+            width: 33px;">
+                +
+            </button>
+            <button class="btn" type="button" style="background: #05728f none repeat scroll 0 0;
+            border: medium none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            font-size: 17px;
+            height: 33px;
+            position: absolute;
+            top: 11px;
+            width: 33px;
+            left: 40px !important;">
+                +
+            </button>
+            <input type="text" class="write_msg" placeholder="Type a message" name="newMessage"
+                style="margin-left: 80px;" />
+            <button class="msg_send_btn" type="button" style="right: 40px !important;">
+                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            </button>
+            <button class="msg_send_btn one" type="button">
+                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div *ngIf="!isMobileView">
+
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper" style="margin-top: 47px;">
+        <!-- Sidebar  -->
+        <!-- <app-header></app-header> -->
+        <app-sidebar></app-sidebar>
+
+        <!-- Page Content  -->
+        <div id="content" class="courseContent ">
+               <div class="col-lg-12 col-md-12 col-sm-12 pt-5 ">
+                   <div class="row m-0">
+                  <button class="btn btn-block" type="button"> <img height="20" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; About Us</button>
+                  <button class="btn btn-block" type="button"> <img height="20" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Contact Us</button>
+                  <button class="btn btn-block" type="button"> <img height="20" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Requests</button>
+                  <button class="btn btn-block" type="button"> <img height="20" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Settings</button>
+                  <button class="btn btn-block" type="button"> <img height="20" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Privacy Policy</button>
+                  <h5 style="margin-top: 15px; border-bottom:1px solid rgb(0, 0, 0); padding-left: 1px; width: 100%; height: auto;" ></h5>
+                  <button class="btn btn-block" type="button"> <img height="20" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Previous Year Papers</button>
+                  <button class="btn btn-block" type="button"> <img height="20" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Google Drive Link</button>
+                  <h5 style="margin-top: 15px; border-bottom:1px solid rgb(0, 0, 0); padding-left: 1px; width: 100%; height: auto;" ></h5>   
+                </div>
+               </div>
+    
+        </div>
+    </div>
+</div>
+<div *ngIf="isMobileView">
+
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <!-- <app-header></app-header> -->
+
+        <!-- Page Content  -->
+        <div id="content" class="courseContent ">
+               <div class="col-lg-12 col-md-12 col-sm-12 pt-5 ">
+                   <div class="row">
+                  <button class="btn btn-block" id="btn1" type="button"><img height="18" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; About Us</button>
+                  <button class="btn btn-block" id="btn1" type="button"><img height="18" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Contact Us</button>
+                  <button class="btn btn-block" id="btn1" type="button"><img height="18" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Requests</button>
+                  <button class="btn btn-block" id="btn1" type="button"><img height="18" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Settings</button>
+                  <button class="btn btn-block" id="btn1" type="button"><img height="18" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Privacy Policy</button>
+                  <h5 style="margin-top: 15px; border-bottom:1px solid rgb(0, 0, 0); padding-left: 1px; width: 100%; height: auto;" ></h5>
+                  <button class="btn btn-block" id="btn1" type="button"><img height="18" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; About Us</button>
+                  <button class="btn btn-block" id="btn1" type="button"><img height="18" src="../../../assets/img/settings.svg" alt="img">&nbsp;&nbsp; Contact Us</button>
+                  
+               </div>
+    
+        </div>
+    </div>
+    
+</div>
+<app-footer [type]="'student'" *ngIf="isMobileView"></app-footer>
+</div>

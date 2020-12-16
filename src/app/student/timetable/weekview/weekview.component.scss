@@ -1,0 +1,39 @@
+
+h1 {
+    width: 100%;
+    // text-align: center; 
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 10px;
+}
+h1 span {
+    // z-index: 100;
+    background: #ebecf0;
+    padding: 0 15px 0 0;
+}
+
+.selected {
+    background-color: #28baa2;
+    color: #ffffff;
+}
+
+.selected #teacher{
+    color: #ffffff;
+}
+#teacher{
+    color: #757575;
+}
+.weekview {
+    table,th,tr {
+        font-size: 1.2rem;
+    }
+}
+th{
+    background-color: #1b2d3f;
+    color: #ffffff;
+    
+}
+#time{
+    background-color: #28baa2;
+    color: #ffffff;
+}

@@ -1,0 +1,5 @@
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color: $color-primary1, $alpha: 0.2) !important;
+    border: 2px solid $color-primary1 !important;
+}

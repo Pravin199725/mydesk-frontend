@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+@import "./assets/sass/base/colors";
+@import "./assets/sass/base/mixin";
+@import "./assets/sass/base/typography";
+@import "./assets/sass/base/utilities";
+
+@import "./assets/sass/components/button";
+@import "./assets/sass/components/input";
+@import "./assets/sass/base/mixin";
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    font-style: Roboto;
+}
+
+.wrapper{
+    display: flex;
+    align-items: stretch;
+    #content{
+        width: 100%;
+    }
+}
+
+/* Shrinking the sidebar from 250px to 80px and center aligining its content*/
+

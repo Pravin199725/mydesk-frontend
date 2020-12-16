@@ -1,0 +1,66 @@
+@import "../../../../assets/sass/base/mixin";
+@import "../../../../assets/sass/base/colors";
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    padding-top: 10px;
+    background-color: #354658;
+  }
+  
+.scrollmenu div {
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.scrollmenu .tab-text {
+  font-size: 2rem;
+}
+
+.day-view.tab-content {
+  table,th,tr {
+    font-size: 1.5rem;
+  }
+}
+.card-fixed {
+    height: 100%;
+    // min-height: 100px;
+    // max-height: 100px;
+    width: 100%;
+    max-width: 100px;
+    min-width: 100px;
+    margin-right: 2rem;
+}
+#myTab{
+    font-size: 15px;
+    justify-content: space-around;
+    background-color: #1b2d3f;
+    border: none;
+    padding-top: 15px;
+  }
+#myTab .nav-link {
+    color: #c4c4c4;
+    border: none;
+  }
+  
+#myTab .nav-link.active {
+    color: white;
+    font-weight: 700;
+    background: none;
+    border-bottom: 5px solid #28baa2;
+  }
+  .scrollmenu .nav-link {
+    color: #c4c4c4;
+    border: 1px solid transparent;
+  }
+  
+  .scrollmenu .nav-link.active {
+    color: white;
+    font-weight: 500;
+    background-color: #354658;
+    border-bottom: 5px solid #28baa2;
+  }
+  
+  

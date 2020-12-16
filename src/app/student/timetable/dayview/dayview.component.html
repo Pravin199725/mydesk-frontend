@@ -1,0 +1,39 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#timetable" role="tab"
+          aria-controls="home" aria-selected="true">Timetable</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#calander" role="tab"
+          aria-controls="profile" aria-selected="false">Calander</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent" >
+  <div class="tab-pane fade show courseMonths active" id="timetable" role="tabpanel"
+      aria-labelledby="home-tab">
+<ul class="scrollmenu nav nav-pills flex-nowrap" id="pills-tab" role="tablist">
+  <li class="nav-item mr-2" *ngFor="let timetableData of timeTable">
+    <a class="nav-link tab-text ml-3 mr-2 " [ngClass]="timetableData.day == 'Mon'? 'active': ''" id="{{'pills-' +   timetableData.day + '-tab' }}" href="{{'#pills-' +   timetableData.day}}"  data-toggle="pill" role="tab"  aria-selected="true">{{timetableData.day }}</a>
+  </li>
+</ul>
+<div class="day-view tab-content" id="pills-tabContent">
+  <div *ngFor="let timetableData of timeTable" class="tab-pane fade" [ngClass]="timetableData.day == 'Mon'? 'show active': ''" id="{{'pills-' + timetableData.day}}" role="tabpanel">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col" style="padding-left: 10px;">Time</th>
+          <th scope="col" style="padding-left: 10px;">{{timetableData.today}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timetable of timetableData.data">
+          <td scope="row" style="font-style: ubantu; font-weight: 500; padding-left: 10px;">{{timetable.time}}</td>
+          <td *ngIf="timetable.recess == 'false'" style="font-style: Roboto ; font-weight: 450; padding-left: 10px;">{{timetable.subject}}<br><div style="color: #757575;">{{timetable.teacherName}}</div></td>
+          <th style="padding-left: 10px;" *ngIf="timetable.recess == 'true'">RECESS</th>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>

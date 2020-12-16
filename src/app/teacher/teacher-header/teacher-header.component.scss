@@ -1,0 +1,35 @@
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
+
+.navbar {
+    width: calc(100vw - 60px);
+    height: rem(75px);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #C6C6C6;
+    border-top: unset;
+    border-radius: rem(0px 0px 20px 20px);
+    opacity: 1;
+    margin:0 auto;
+}
+
+.nav-link.active {
+    color: #94a2ad;
+    font-weight: 700;
+}
+
+.nav-tabs .nav-link {
+    color: black;
+    border: 1px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: #94a2ad;
+}
+
+.navEvent {
+    margin: 20px;
+    height: 180px;
+    background: lightgray;
+    border-radius: 5px;
+}
+

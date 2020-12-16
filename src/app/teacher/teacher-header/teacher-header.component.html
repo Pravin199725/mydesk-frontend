@@ -1,0 +1,49 @@
+<nav class="navbar navbar-light bg-light" *ngIf="!isMobileView">
+        <div class="nav-link mr-3" routerLink="/teacher/home" routerLinkActive="active">
+            <img height="18" class="mb-2" src="../../../assets/img/House 2.svg">
+            <span class="ml-3" style="font-size: 18px;">Home</span>
+        </div>
+    
+        <div class="nav-link mr-3" routerLink="/teacher/discussions" routerLinkActive="active">
+            <img height="18" class="mb-2" src="../../../assets/img/Pencil Write.svg">
+            <span class="ml-3" style="font-size: 18px;">Discussions</span>
+        </div>
+    
+        <div class="nav-link mr-3" routerLink="/teacher/recent" routerLinkActive="active">
+            <img height="18" class="mb-2" src="../../../assets/img/Calendar 4.svg">
+            <span class="ml-3" style="font-size: 18px;">Recent</span>
+        </div>
+    
+        <div class="nav-link mr-3" routerLink="/teacher/grade" routerLinkActive="active">
+            <img height="18" class="mb-2" src="../../../assets/img/Calendar Check.svg">
+            <span class="ml-3" style="font-size: 18px;">Grade</span>
+        </div>
+    
+        <div class="nav-link mr-3" routerLink="/teacher/people" routerLinkActive="active">
+            <img height="18" class="mb-2" src="../../../assets/img/Align Landscape.svg">
+            <span class="ml-3" style="font-size: 18px;">People</span>
+        </div>
+    </nav>
+    
+    
+    <ul class="nav nav-tabs navbar" id="myTab" role="tablist" *ngIf="isMobileView">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true" style="font-size: 12px;">Announcement</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false" style="font-size: 12px;">Upcomings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                aria-selected="false" style="font-size: 12px;">Overdue</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent" *ngIf="isMobileView">
+        <div class="tab-pane fade show active navEvent" id="home" role="tabpanel" aria-labelledby="home-tab">
+    
+        </div>
+        <div class="tab-pane fade navEvent" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade navEvent" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    </div>
