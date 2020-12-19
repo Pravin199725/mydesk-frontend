@@ -1,17 +1,17 @@
 <div *ngIf="!isMobileView && !openGradeView" style="background: #EBECF0;">
 
-    <table id="customers" style="width: 100%;">
+    <table id="customers" style="width: 100%; padding-top: 30px; border-bottom: 1px solid #000000;">
         <thead>
 
             <tr class="header">
-                <th class="text-left" style="padding-left: 60px;" >Item</th>
-                <th class="text-center" style="padding-left: 250px;">Status</th>
-                <th class="text-center" style="padding-left: 60px;">Due Date</th>
-                <th class="text-center" style="padding-left:60px;">Obtained Marks</th>
+                <th class="text-left" style="padding-left: 60px;" > Item</th>
+                <th class="text-center" style="padding-left: 250px;"> Status</th>
+                <th class="text-center" style="padding-left: 60px;"> Due Date</th>
+                <th class="text-center" style="padding-left:60px;"> Obtained Marks</th>
             </tr>
         </thead>
         </table>
-        <button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="goToLec()" style=" background-color: #ffffff; width: 98%; padding: 5px;">
+        <button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="openGrade()" style=" background-color: #ffffff; width: 98%; padding: 5px;">
             <div class="d-flex justify-content-between p-2">
              
                 <div class="d-flex">
@@ -88,58 +88,65 @@
 </div>
 
 <div *ngIf="!isMobileView && openGradeView" class="m-3" style="background: white;">
-    <button class="btn btn-primary" (click)="closeGrade()">
-        Back
-    </button>
-    <div class="card">
-        <span class="card-header" style="font-size: 16px;">
-            <img class="m-3" height="14" src="../../../assets/img/Edit.svg" alt="img">
-            Quadratic Equation Assignment
-        </span>
-        <div class="card-body" style="font-size: 12px;">
-            <p>Short Discription About the Assignment In that structure of assignment Short Discription About the
-                Assignment In
-                that structure of assignment Short Discription About the Assignment In that structure of assignment</p>
-            <span class="fw-700">
-                Due Date: 06th November 2020
-            </span>
-        </div>
-        <div class="card-footer">
-            <div class="input-group">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile04">
-                    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                </div>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="accordion pt-3" id="accordionExample">
+        <!--<button type="button" class="btn  d-flex" (click)="closeGrade()" style="background-color: #354658; color: #ffffff; font-size: 16px;">
+            <span ><img height="14" src="../../../assets/img/chevron-pointing-to-the-left.svg" alt="img"></span><p style="height: 20px; padding-top: 3px; padding-left: 5px; padding-right: 5px;">Back</p>
+    </button><br>-->
         <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                    aria-controls="collapseOne">
-                    <span class="courseMonth">
-                        Comments
-                    </span>
-                    <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
-
-                </h5>
+            <span class="card-header d-flex" style="font-size: 20px; text-align: left; background-color: #1B2D3F; color: #ffffff; padding-left: 50px;">
+                <img class="m-3" height="25" src="../../../assets/img/edit (1).svg" alt="img">
+                <p style="padding-top: 10px; padding-left: 10px;">Quadratic Equation Assignment</p>
+            </span>
+            <div class="card-body" style="font-size: 15px; padding: 50px;">
+                <p>Short Discription About the Assignment In that structure of assignment Short Discription About the
+                    Assignment In
+                    that structure of assignment Short Discription About the Assignment In that structure of assignment</p>
+                <span class="fw-700">
+                    Due Date: 06th November 2020
+                </span>
             </div>
-
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                    <div class="cardDetail">
-                        <app-discussions></app-discussions>
+            <div class="card-footer" style="padding-right: 50px; padding-left: 50px; background-color: #ffffff; border: none;" >
+                <div class="d-flex ">
+                    
+                    <button type="button" class="btn"><img  height="25" src="../../../assets/img/download-to-storage-drive.svg" alt="img"></button>
+                    <a href="" style="font-size: 15px; font-weight: bold; padding-left: 10px; padding-top: 10px; color: #000000;">Quadratic Equation.PDF</a>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <div class="custom-file" >
+                        <input type="file" class="custom-file-input" id="inputGroupFile04">
+                        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" style="background-color: #1B2D3F; color: #ffffff; padding-left: 40px; padding-right: 40px;" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="accordion pt-3" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne" style="background-color: #1B2D3F;">
+                    <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        <span class="courseMonth">
+                            Comments
+                        </span>
+                        <img class="m-2" height="20" src="../../../assets/img/chevron-arrow-down.svg" alt="img">
+    
+                    </h5>
+                </div>
+    
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="cardDetail">
+                            <app-discussions></app-discussions>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
@@ -213,8 +220,8 @@
     </table>
 
 </div>-->
-<div *ngIf="isMobileView && !openGradeView" style=" margin-top: 140px;">
-<button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="goToLec()" style=" background-color: #ffffff; width: 92%; padding: 5px;">
+<div *ngIf="isMobileView && !openGradeView" class="m-3">
+<button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="openGrade()" style=" background-color: #ffffff; width: 92%; padding: 5px;">
     <div class="d-flex p-3">
         <span style="align-self: center;margin: 0px 5px;">
             <!--<img *ngIf="list.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">-->
@@ -290,17 +297,13 @@
 </button>
 </div>
 
-<div *ngIf="isMobileView && openGradeView" class="m-3" style="background: white;">
-    <button class="btn btn-primary" (click)="closeGrade()">
-        Back
-    </button>
-    <br />
+<div *ngIf="isMobileView && openGradeView" class="m-3" style="background: white; margin-top: 110px;">
     <div class="card">
-        <span class="card-header" style="font-size: 16px;">
-            <img class="m-3" height="14" src="../../../assets/img/Edit.svg" alt="img">
-            Quadratic Equation Assignment
+        <span class="card-header d-flex" style="font-size: 20px; text-align: left; background-color: #1B2D3F; color: #ffffff; padding-left: 50px;">
+            <img  style="margin: auto; margin-left: 5px;" height="25" src="../../../assets/img/edit (1).svg" alt="img">
+            <p class="overflow ellipsi" >Quadratic Equation Assignment vghf hgyg jhgyg</p>
         </span>
-        <div class="card-body" style="font-size: 12px;">
+        <div class="card-body" style="font-size: 15px; padding: 50px;">
             <p>Short Discription About the Assignment In that structure of assignment Short Discription About the
                 Assignment In
                 that structure of assignment Short Discription About the Assignment In that structure of assignment</p>
@@ -308,14 +311,21 @@
                 Due Date: 06th November 2020
             </span>
         </div>
+        <div class="card-footer" style="padding-right: 50px; padding-left: 50px; background-color: #ffffff; border: none;" >
+            <div class="d-flex ">
+                
+                <button type="button" class="btn"><img  height="25" src="../../../assets/img/download-to-storage-drive.svg" alt="img"></button>
+                <a href="" style="font-size: 15px; font-weight: bold; padding-left: 10px; padding-top: 10px; color: #000000;">Quadratic Equation.PDF</a>
+            </div>
+        </div>
         <div class="card-footer">
             <div class="input-group">
-                <div class="custom-file">
+                <div class="custom-file" >
                     <input type="file" class="custom-file-input" id="inputGroupFile04">
                     <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                 </div>
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Submit</button>
+                    <button class="btn btn-outline-secondary" style="background-color: #1B2D3F; color: #ffffff; padding-left: 40px; padding-right: 40px;" type="button">Submit</button>
                 </div>
             </div>
         </div>
@@ -323,13 +333,13 @@
 
     <div class="accordion pt-3" id="accordionExample">
         <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="headingOne" style="background-color: #1B2D3F;">
                 <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                     aria-controls="collapseOne">
                     <span class="courseMonth">
                         Comments
                     </span>
-                    <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                    <img class="m-2" height="20" src="../../../assets/img/chevron-arrow-down.svg" alt="img">
 
                 </h5>
             </div>

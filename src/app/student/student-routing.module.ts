@@ -62,7 +62,6 @@ const routes: Routes = [
     component: MoreComponent
   },
 
-
 ];
 
 @NgModule({

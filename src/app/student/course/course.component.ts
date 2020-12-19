@@ -90,6 +90,9 @@ export class CourseComponent implements OnInit {
     this.router.navigate([`/student/home`]);
   
 }
+ openGrade() {
+  this.openGradeView = true;
+ }
   scroll() {
     // if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 150) {
     //   document.getElementById("couse-header").classList.add('d-none');

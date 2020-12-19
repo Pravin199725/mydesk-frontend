@@ -11,8 +11,8 @@
                         <span style="font-size: 2rem; font-weight: bold;">{{subject.subjectName}}</span>
                         <button style="border-radius: 5px;font-size: 12px;" class="ml-3" *ngIf="type == 'teacher'">+</button>
                     </div>
-                    <button style="border-radius: 5px;background: #354658;color: white; width: 150px; height: 40px; font-size: 15px;" (click)="goToCourse()" *ngIf="!isMobileView" ><b>Go to Course</b></button>
-                    <button style="border-radius: 5px;background: #354658;color: white; width: 100px; height: 25px; font-size: 12px;" (click)="goToCourse()" *ngIf="isMobileView" ><b>Go to Course</b></button>
+                    <button class="btn" style="border-radius: 5px;background: #354658;color: white; width: 150px; height: 40px; font-size: 15px;" (click)="goToCourse()" *ngIf="!isMobileView" ><b>Go to Course</b></button>
+                    <button class="btn" style="border-radius: 5px;background: #354658;color: white; width: 100px; height: 25px; font-size: 12px;" (click)="goToCourse()" *ngIf="isMobileView" ><b>Go to Course</b></button>
                 </div>
                 <hr style="margin: 0px 5px; border-top:1px solid lightgray; padding-left: 1px;" />
                 <div class="d-flex justify-content-between p-2">

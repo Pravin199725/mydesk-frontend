@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-
+                       
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseTwo"
@@ -308,7 +308,9 @@
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="tab-pane fade" *ngIf="openGradeView" id="discussion" role="tabpanel" aria-labelledby="profile-tab">
+                    <app-assignment></app-assignment>
                 </div>
                 <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="profile-tab">
                     <app-discussions></app-discussions>
@@ -319,8 +321,10 @@
                 <div class="tab-pane fade" id="live" role="tabpanel" aria-labelledby="contact-tab">
                     <app-live></app-live>
                 </div>
+                
 
             </div>
+            
 
         </div>
     </div>
@@ -707,4 +711,8 @@
 
 
     <app-footer [type]="'student'"></app-footer>
+</div>
+
+<div *ngIf="isMobileView && openGradeView" class="m-3">
+    <app-assignment></app-assignment>
 </div>

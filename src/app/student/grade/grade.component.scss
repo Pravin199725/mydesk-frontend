@@ -1,4 +1,5 @@
-
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
 
 .header {
     border-bottom: 3px solid black;
@@ -151,3 +152,18 @@ table#customers {
       white-space: nowrap;
       overflow: hidden;
   }
+  .ellipsi{
+    padding-top: 8px;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin-left: -50px;
+    text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+  .courseMonth {
+    font-size: 24px;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
+} 
