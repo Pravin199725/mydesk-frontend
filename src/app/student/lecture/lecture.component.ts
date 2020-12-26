@@ -28,7 +28,10 @@ export class LectureComponent implements OnInit {
       this.isMobileView = isMobile;
     });
   }
-  closeGrade() {
-    this.router.navigate([`/student/course`])
+ goBack() {
+    window.history.back();
+  }
+  public getRoute(route) {
+    return '/' + this.type + '/' + route;
   }
 }

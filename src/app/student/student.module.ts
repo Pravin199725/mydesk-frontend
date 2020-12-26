@@ -21,19 +21,22 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { LiveComponent } from './live/live.component';
 import { MoreComponent } from './more/more.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
 @NgModule({
   declarations: [HomeComponent, StudentHeaderComponent,
     DiscussionsComponent, RecentComponent,
-    GradeComponent, MessageComponent, CourseComponent, TimetableComponent, WeekviewComponent, DayviewComponent, LectureComponent, AssignmentComponent, QuizComponent, LiveComponent, MoreComponent],
+    GradeComponent, MessageComponent, CourseComponent, TimetableComponent, WeekviewComponent, DayviewComponent, LectureComponent, AssignmentComponent, QuizComponent, LiveComponent, MoreComponent,CalendarComponent],
   imports: [
     CommonModule,
     StudentRoutingModule,
     RouterModule,
     LayoutModule,
-    EventSectionModule
+    EventSectionModule,
+    FullCalendarModule
   ]
 })
 export class StudentModule { }

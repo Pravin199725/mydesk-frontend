@@ -9,7 +9,7 @@ export class SidebarComponent implements OnInit {
 
   @Input() 
   public type: string = 'student'
-  
+ 
   constructor() { }
 
   ngOnInit(): void {

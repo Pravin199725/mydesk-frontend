@@ -1,0 +1,49 @@
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
+h3 {
+    width: 100%;
+    // text-align: center; 
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 10px;
+}
+
+h3 span {
+    // z-index: 100;
+    background: #ebecf0;
+    padding: 0 15px 0 0;
+}
+
+h5 {
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+}
+h2 {
+    width: 100%;
+    // text-align: center; 
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 10px;
+}
+
+h2 span {
+    // z-index: 100;
+    background: #ebecf0;
+    padding: 0 15px 0 0;
+}
+.modal-content{
+    border-radius: 12px;
+  }
+  .modal-header{
+      text-align: center; background-color: #1B2D3F; color: #ffffff; border-radius: 10px 10px 0px 0px;
+    }
+  .modal-title{
+    margin: auto;
+  }
+  .modal-footer{
+    border: none;
+  }
+  .modal-footer .btn{
+    text-align: center; background-color: #354658; color: #ffffff;
+  }
+  

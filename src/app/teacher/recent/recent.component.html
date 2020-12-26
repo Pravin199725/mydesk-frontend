@@ -1,13 +1,16 @@
 <div *ngIf="!isMobileView">
-
-    <app-header></app-header>
-    <div class="wrapper">
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper" style="margin-top: 47px;">
         <!-- Sidebar  -->
         <!-- <app-header></app-header> -->
-        <app-sidebar [type]="'teacher'"></app-sidebar>
+        <div class="fixed-sidebar">
+            <app-sidebar [type]="'teacher'"></app-sidebar>
+        </div>
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" class="courseContent ">
             <h1> RECENT </h1>
         </div>
     </div>

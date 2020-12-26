@@ -2,92 +2,171 @@
 @import "../../../assets/sass/base/colors";
 
 .courseContent {
-    width: 100%;
-    background: white;
-    margin-left: 200px;
+  width: 100%;
+  margin-left: 200px;
 }
 
 .courseContentActive {
-    width: 100%;
-    background: white;
-    margin-left: 60px !important;
+  width: 100%;
+  margin-left: 80px !important;
 }
 
 .nav-tabs {
-    font-size: 12px;
-    justify-content: space-around;
-}
-
-.nav-link.active {
-    color: #94a2ad;
-    font-weight: 700;
+  font-size: 12px;
+  justify-content: space-around;
 }
 
 .nav-tabs .nav-link {
-    color: black;
-    border: 1px solid transparent;
+  color: #c4c4c4;
+  border: 1px solid transparent;
 }
 
 .nav-tabs .nav-link.active {
-    color: #94a2ad;
+  color: white;
+  font-weight: 700;
+  background: none;
+  border-bottom: 5px solid #28baa2;
 }
 
-.wrapper{
-    display: flex;
-    align-items: stretch;
+.wrapper {
+  display: flex;
+  align-items: stretch; 
 }
 
 .fixed-sidebar {
-    position: fixed;
-    height: 100%;
+  position: fixed;
+  height: 100%;
 }
 
 .couse-header {
-    color: white;
-    background: linear-gradient(180deg, #409FE5 0%, #0098EE 100%);
-    .nav-tabs  .nav-link:not(.active) {
-        color: white;
-    }
+  color: white;
+  background: linear-gradient(180deg, #409fe5 0%, #0098ee 100%);
 }
 .courseName {
-    font-size: 30px; 
-    padding-top: 20px;
+  
+  font-size: 30px;
+  padding-top: 40px;
 }
 
 .courseTeacher {
-    font-size: 20px; 
-    padding-bottom: 20px;
+  font-size: 20px;
+  padding-bottom: 35px;
 }
 
-.courseMonths {
-    padding-top: 30px; 
-    padding-left: 2rem;
-    padding-right: 2rem;
+.courseMonths{ 
+  background-color: transparent;
+  padding-top: 30px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .courseMonth {
-    font-size: 24px;
-    width: 100%;
-    text-align: left;
-} 
+  background-color: transparent;
+  font-size: 24px;
+  width: 95%;
+  text-align: left;
+}
 
 .cardDetail {
-    margin: 5px;
-    overflow: auto;
-    background: #F7F4F4;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.14), 0px 6px 6px rgba(0, 0, 0, 0.12), 0px 0px 0px rgba(0, 0, 0, 0.2);
+
+  margin: 5px;
+  overflow: auto;
+  background: #f7f4f4;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.14), 0px 6px 6px rgba(0, 0, 0, 0.12),
+    0px 0px 0px rgba(0, 0, 0, 0.2);
+    height: auto;
+}
+#cardDetail {
+  display: inline-block;
+  margin: 5px;
+  overflow: auto;
+  background: #f7f4f4;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.14), 0px 6px 6px rgba(0, 0, 0, 0.12),
+  0px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
 .cardDetailBox {
-    margin: 15px;
-    background: #FFFFFF;
-    border: 0.2px solid #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px
+  margin: 15px;
+  background: #ffffff;
+  border: 0.2px solid #ffffff;
+  width: 97%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.m-0{
+  margin: auto;
+  text-align: left;
+}
+@media (max-width: 700px) {
+  .courseMonths {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
-@media(max-width : 700px) {
-    .courseMonths {
-        padding-left: 0;
-        padding-right: 0;
-    }
+.upcoming {
+  margin: auto;
+  border: 1px solid#0EB11E;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #0eb11e;
+  font-size: 12px;
 }
+
+.overdue {
+  margin: auto;
+  border: 1px solid#F50505;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #f50505;
+  font-size: 12px;
+}
+div.scrollmenu {
+  //background-color: #333;
+  overflow-x: scroll; 
+    overflow-y:hidden; 
+    height: 300px;
+    white-space: nowrap;
+}
+.ellipsis{
+    font-size: 13px;
+    padding-top: 8px;
+    text-overflow: ellipsis;
+    width: 60em;
+    text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+  .ellipsi{
+    padding-top: 8px;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin-left: -50px;
+    text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+  h5[aria-expanded=true] #down {
+    display: none;
+ }
+ h5[aria-expanded=false] #up {
+    display: none;
+ }
+
+ .modal-content{
+    border-radius: 12px;
+  }
+  .modal-header{
+      text-align: center; background-color: #1B2D3F; color: #ffffff; border-radius: 10px 10px 0px 0px;
+    }
+  .modal-title{
+    margin: auto;
+  }
+  .modal-footer{
+    border: none;
+  }
+  .modal-footer .btn{
+    text-align: center; background-color: #354658; color: #ffffff;
+  }
+  

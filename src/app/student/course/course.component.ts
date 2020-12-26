@@ -93,6 +93,7 @@ export class CourseComponent implements OnInit {
  openGrade() {
   this.openGradeView = true;
  }
+
   scroll() {
     // if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 150) {
     //   document.getElementById("couse-header").classList.add('d-none');

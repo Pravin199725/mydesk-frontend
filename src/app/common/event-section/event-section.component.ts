@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./event-section.component.scss']
 })
 export class EventSectionComponent implements OnInit {
+ 
+  @Input() type: string = 'student';
 
-
-  announcements = [
+  public announcements = [
     {
       date: '8',
       month: 'Jan',
@@ -106,7 +107,7 @@ export class EventSectionComponent implements OnInit {
     }
   ]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private zone: NgZone) { }
 
   ngOnInit() {
 

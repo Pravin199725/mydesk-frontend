@@ -1,56 +1,303 @@
-<!-- <div *ngIf="!isMobileView">
+<div *ngIf="!isMobileView && !openGradeView" style="background: #EBECF0; ">
 
-    <app-header></app-header>
-    <div class="wrapper">
-        <app-sidebar></app-sidebar>
+    
 
-        <div id="content">
-            <app-timetable></app-timetable>
+            <div class="header d-flex justify-content-between p-2 ml-4 mr-4 mt-3" style=" width: 95%; padding-top: 30px; border-bottom: 1px solid #000000;">
+                <div class="text-left" > Item</div>
+                
+                <div class="text-center" style="margin: 0px 0px 0px 200px;"> Due Date</div>
+                <div class="text-center" style="align-self: center;margin: 0px 60px;"> check</div>
+                
+            </div>
+        
+        
+        <button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="goToLec()" style=" background-color: #ffffff; width: 98%; padding: 5px;">
+            <div class="d-flex justify-content-between p-2">
+             
+                <div class="d-flex">
+                   <span style="align-self: center;margin: 0px 5px;">
+                    <!--<img *ngIf="list.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">-->
+                    
+                        <img *ngIf="list.type == 'Assignment'" height="20" src="../../../assets/img/edit (1).svg" alt="img">
+                        <img *ngIf="list.type == 'Quiz'" height="20" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                        
+                    <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                        viewBox="0 0 31 30" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4"
+                            d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                            fill="#200E32" />
+                    </svg>
+                    <svg *ngIf="list.type == 'Upcoming'" width="25" height="25"
+                        viewBox="0 0 25 25" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4"
+                            d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                            fill="#200E32" />
+                        <path
+                            d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                            fill="#200E32" />
+                    </svg>
+                    <svg *ngIf="list.type == 'Overdue'" width="25" height="25"
+                        viewBox="0 0 25 25" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4"
+                            d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                            fill="#200E32" />
+                        <path
+                            d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                            fill="#200E32" />
+                        <path opacity="0.4"
+                            d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                            fill="#200E32" />
+                    </svg>-->
+                </span>&nbsp;&nbsp;
+                <h5 class="overflow ellipsis" ><b>{{list.title}}</b></h5>
+            </div>    
+                        
+                        <p class="m-0" style="font-size: 12px; color:  #757575; padding-top: 10px;">Due : {{list.uploaded}}</p>
+               
+                <button class="btn" style="align-self: center;margin: 0px 50px; background-color: #1B2D3F; color: white; width: 100px; font-size: 16px; border-radius: 5px;" >
+                    <b>check</b>
+                    <!--<svg width="30" height="28" viewBox="0 0 30 28" fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect y="0.801559" width="30" height="26.9845"
+                            fill="url(#pattern0)" />
+                        <defs>
+                            <pattern id="pattern0"
+                                patternContentUnits="objectBoundingBox" width="1"
+                                height="1">
+                                <use xlink:href="#image0"
+                                    transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)" />
+                            </pattern>
+                            <image id="image0" width="68" height="67"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII=" />
+                        </defs>
+                    </svg>-->
+                </button>
+            </div>
+        </button>
+
+</div>
+
+<div *ngIf="!isMobileView && openGradeView" class="m-3" style="background: white;">
+        <!--<button type="button" class="btn  d-flex" (click)="closeGrade()" style="background-color: #354658; color: #ffffff; font-size: 16px;">
+            <span ><img height="14" src="../../../assets/img/chevron-pointing-to-the-left.svg" alt="img"></span><p style="height: 20px; padding-top: 3px; padding-left: 5px; padding-right: 5px;">Back</p>
+    </button><br>-->
+        <div class="card">
+            <span class="card-header d-flex" style="font-size: 20px; text-align: left; background-color: #1B2D3F; color: #ffffff; padding-left: 50px;">
+                <img class="m-3" height="25" src="../../../assets/img/edit (1).svg" alt="img">
+                <p style="padding-top: 10px; padding-left: 10px;">Quadratic Equation Assignment</p>
+            </span>
+            <div class="card-body" style="font-size: 15px; padding: 50px;">
+                <p>Short Discription About the Assignment In that structure of assignment Short Discription About the
+                    Assignment In
+                    that structure of assignment Short Discription About the Assignment In that structure of assignment</p>
+                <span class="fw-700">
+                    Due Date: 06th November 2020
+                </span>
+            </div>
+            <div class="card-footer" style="padding-right: 50px; padding-left: 50px; background-color: #ffffff; border: none;" >
+                <div class="d-flex ">
+                    
+                    <button type="button" class="btn"><img  height="25" src="../../../assets/img/download-to-storage-drive.svg" alt="img"></button>
+                    <a href="" style="font-size: 15px; font-weight: bold; padding-left: 10px; padding-top: 10px; color: #000000;">Quadratic Equation.PDF</a>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <div class="custom-file" >
+                        <input type="file" class="custom-file-input" id="inputGroupFile04">
+                        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" style="background-color: #1B2D3F; color: #ffffff; padding-left: 40px; padding-right: 40px;" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="accordion pt-3" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne" style="background-color: #1B2D3F;">
+                    <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        <span class="courseMonth">
+                            Comments
+                        </span>
+                        <img class="m-2" height="20" src="../../../assets/img/chevron-arrow-down.svg" alt="img">
+    
+                    </h5>
+                </div>
+    
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="cardDetail">
+                            <app-discussions></app-discussions>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<app-footer *ngIf="isMobileView"></app-footer> -->
 
-<div *ngIf="!isMobileView && !openGradeView" class="m-3" style="background: white;">
+
+
+<!--<div *ngIf="isMobileView && !openGradeView" class="m-3" style="background: white;height: 85vh;">
 
     <table id="customers" style="width: 100%;">
         <thead>
-
-            <tr class="header">
+            <tr class="headerMobile">
                 <th class="pl-3">Item</th>
-                <th class="text-center">Uploaded On</th>
-                <th class="text-center">Due to</th>
-                <th class="text-center">Submissions</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">D D</th>
+                <th class="text-center">O M</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="rowData" *ngFor="let item of [1,2,3,4,5,6]"  (click)="openGrade()">
+            <br />
+            <tr class="rowDataMobile" (click)="openGrade()">
                 <td>
-                    Quadratic Equation Assignment
+                    <span>
+                        <img class="m-2" height="14" src="../../../assets/img/Edit.svg" alt="img">
+                        Quadratic Equation Assignment
+                    </span>
                 </td>
                 <td class="text-center ">
-                    1st Oct
+                    <button class="submittedMobile btn">
+                        Submitted
+                    </button>
                 </td>
                 <td class="text-center">3rd Oct</td>
                 <td class="text-center">08/10</td>
 
             </tr>
+
+            <br />
+            <tr class="rowDataMobile" (click)="openGrade()">
+                <td>
+                    <span>
+                        <img class="m-2" height="14" src="../../../assets/img/Edit.svg" alt="img">
+                        Quadratic Equation Assignment
+                    </span>
+                </td>
+                <td class="text-center ">
+                    <button class="overdueMobile btn">
+                        Overdue
+                    </button>
+                </td>
+                <td class="text-center">3rd Oct</td>
+                <td class="text-center">08/10</td>
+
+            </tr>
+
+            <br />
+            <tr class="rowDataMobile" (click)="openGrade()">
+                <td>
+                    <span>
+                        <img class="m-2" height="14" src="../../../assets/img/Edit.svg" alt="img">
+                        Quadratic Equation Assignment
+                    </span>
+                </td>
+                <td class="text-center ">
+                    <button class="upcomingMobile btn">
+                        Upcoming
+                    </button>
+                </td>
+                <td class="text-center">3rd Oct</td>
+                <td class="text-center">08/10</td>
+
+            </tr>
+
         </tbody>
     </table>
 
+</div>-->
+<div *ngIf="isMobileView && !openGradeView" class="m-3" style="padding-top: 20px;">
+<button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="goToLec()" style=" background-color: #ffffff; width: 92%; padding: 5px;">
+    <div class="d-flex p-3">
+        <span style="align-self: center;margin: 0px 5px;">
+            <!--<img *ngIf="list.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">-->
+                <img *ngIf="list.type == 'Assignment'" height="25" src="../../../assets/img/edit (1).svg" alt="img">
+                <img *ngIf="list.type == 'Quiz'" height="25" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                
+            <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                viewBox="0 0 31 30" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4"
+                    d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                    fill="#200E32" />
+            </svg>
+            <svg *ngIf="list.type == 'Upcoming'" width="25" height="25"
+                viewBox="0 0 25 25" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4"
+                    d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                    fill="#200E32" />
+                <path
+                    d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                    fill="#200E32" />
+            </svg>
+            <svg *ngIf="list.type == 'Overdue'" width="25" height="25"
+                viewBox="0 0 25 25" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4"
+                    d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                    fill="#200E32" />
+                <path
+                    d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                    fill="#200E32" />
+                <path opacity="0.4"
+                    d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                    fill="#200E32" />
+            </svg>-->
+        </span>
+        <div class="w-100" style=" margin-left: 1rem;">
+            <div class="d-flex">
+                    <h5 class="overflow ellipsis" style="width: 200px; font-size: 12px;"><b>{{list.title}}</b></h5>
+                    
+             </div>&nbsp;
+         <div class=" d-flex justify-content-between p-2"  style="width: 80%;">
+             <span *ngIf="list.tag == 'Submitted'"
+             class="ml-2 submit">Upcoming</span>
+             <span *ngIf="list.tag == 'Upcoming'"
+             class="ml-2 upcom">Submitted</span>
+             <span *ngIf="list.tag == 'Overdue'"
+             class="ml-2 over">Overdue</span>
+                <p class="m-0" style="font-size: 12px; color:  #757575;">Due : {{list.uploaded}}</p>
+         </div>
+        </div>
+        <button class="btn" style="align-self: center;margin: 0px 2px; background-color: #1B2D3F; color: white; width: 20%; font-size: 16px; border-radius: 5px;">
+            <b>{{list.marks}}</b>
+            <!--<svg width="30" height="28" viewBox="0 0 30 28" fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect y="0.801559" width="30" height="26.9845"
+                    fill="url(#pattern0)" />
+                <defs>
+                    <pattern id="pattern0"
+                        patternContentUnits="objectBoundingBox" width="1"
+                        height="1">
+                        <use xlink:href="#image0"
+                            transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)" />
+                    </pattern>
+                    <image id="image0" width="68" height="67"
+                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII=" />
+                </defs>
+            </svg>-->
+        </button>
+    </div>
+</button>
 </div>
 
-<div *ngIf="!isMobileView && openGradeView" class="m-3" style="background: white;">
-    <button class="btn btn-primary" (click)="closeGrade()">
-        Back
-    </button>
-    <br />
+<div *ngIf="isMobileView && openGradeView" class="m-3" style="background: white; padding-top: 20px;">
     <div class="card">
-        <span class="card-header" style="font-size: 16px;">
-            <img class="m-3" height="14" src="../../../assets/img/Edit.svg" alt="img">
-            Quadratic Equation Assignment
+        <span class="card-header d-flex" style="font-size: 20px; text-align: left; background-color: #1B2D3F; color: #ffffff; padding-left: 50px;">
+            <img  style="margin: auto; margin-left: 5px;" height="25" src="../../../assets/img/edit (1).svg" alt="img">&nbsp; &nbsp;
+            <p class="overflow ellipsi" >Quadratic Equation Assignment</p>
         </span>
-        <div class="card-body" style="font-size: 12px;">
+        <div class="card-body" style="font-size: 15px; padding: 50px;">
             <p>Short Discription About the Assignment In that structure of assignment Short Discription About the
                 Assignment In
                 that structure of assignment Short Discription About the Assignment In that structure of assignment</p>
@@ -58,14 +305,21 @@
                 Due Date: 06th November 2020
             </span>
         </div>
+        <div class="card-footer" style="padding-right: 50px; padding-left: 50px; background-color: #ffffff; border: none;" >
+            <div class="d-flex ">
+                
+                <button type="button" class="btn"><img  height="25" src="../../../assets/img/download-to-storage-drive.svg" alt="img"></button>
+                <a href="" style="font-size: 15px; font-weight: bold; padding-left: 10px; padding-top: 10px; color: #000000;">Quadratic Equation.PDF</a>
+            </div>
+        </div>
         <div class="card-footer">
             <div class="input-group">
-                <div class="custom-file">
+                <div class="custom-file" >
                     <input type="file" class="custom-file-input" id="inputGroupFile04">
                     <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                 </div>
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Submit</button>
+                    <button class="btn btn-outline-secondary" style="background-color: #1B2D3F; color: #ffffff; padding-left: 40px; padding-right: 40px;" type="button">Submit</button>
                 </div>
             </div>
         </div>
@@ -73,13 +327,13 @@
 
     <div class="accordion pt-3" id="accordionExample">
         <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="headingOne" style="background-color: #1B2D3F;">
                 <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                     aria-controls="collapseOne">
                     <span class="courseMonth">
                         Comments
                     </span>
-                    <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                    <img class="m-2" height="20" src="../../../assets/img/chevron-arrow-down.svg" alt="img">
 
                 </h5>
             </div>
@@ -88,67 +342,9 @@
                 <div class="card-body">
                     <div class="cardDetail">
                         <app-discussions></app-discussions>
-
-                        <!-- <div class="cardDetailBox" *ngFor="let list of cousesList">
-                            <div class="d-flex p-3">
-                                <span style="align-self: center;margin: 0px 15px;">
-                                <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.4" d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z" fill="#200E32"/>
-                                    </svg>
-                                </span>
-                                <div class="w-100" style="align-self: center; margin-left: 2rem;">
-                                    <h5> Title of course</h5>
-                                    <p class="m-0">This is short discription</p>
-                                    <p class="m-0">Uploaded on: 5th June</p>
-                                </div>
-                                <span style="align-self: center;margin: 0px 10px;">
-                                    <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <rect y="0.801559" width="30" height="26.9845" fill="url(#pattern0)"/>
-                                    <defs>
-                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                    <use xlink:href="#image0" transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)"/>
-                                    </pattern>
-                                    <image id="image0" width="68" height="67" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII="/>
-                                    </defs>
-                                    </svg>
-                                </span>    
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-<div *ngIf="isMobileView" class="m-3" style="background: white;height: 85vh">
-
-    <table id="customers" style="width: 100%;">
-        <thead>
-
-            <tr class="headerMobile">
-                <th class="pl-3">Item</th>
-                <th class="text-center">Uploaded On</th>
-                <th class="text-center">Due to</th>
-                <th class="text-center">Submissions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="rowDataMobile" *ngFor="let item of [1,2,3,4,5,6]"  (click)="openGrade()">
-                <td>
-                    Quadratic Equation Assignment
-                </td>
-                <td class="text-center ">
-                    1st Oct
-                </td>
-                <td class="text-center">3rd Oct</td>
-                <td class="text-center">08/10</td>
-
-            </tr>
-        </tbody>
-    </table>
-
 </div>

@@ -1,14 +1,14 @@
-<nav id="sidebar" class="bg-primary2" >
+<nav id="sidebar" class="bg-primary1"  >
     <div class="sidebar-header text-center">
-        <div class="header" style="color:white; padding-top:15px; padding-bottom:15px; border-bottom:1px solid;">
-            <h2 style="font-size:28px">9th - B</h2>
-            <h4>code: AsDajs</h4>
-        </div>
-        <div class="school d-flex flex-row" style="padding-top:20px; color:white;">
-            <img id="sclogo" style="padding-left:10px;" height="50" src="../../../assets/img/school (2).svg">
-            <h3 style="padding-left:20px; margin-top:18px;">DPS - Pune</h3>
+        <div class="school d-flex flex-column" style="padding-top:20px; color:white;">
+            <img id="sclogo"  height="50" src="../../../assets/img/school.svg"><br>
+            <h3 >DPS - Pune</h3>
+            <h3 *ngIf="type == 'student'">9th - B</h3>
+            <h4 *ngIf="type == 'student'">code: AsDajs</h4>
             
         </div>
+
+        
     </div>
 
     <div style="padding-top:70px; background:#1B2D3F; height:calc(100% - 125px);">
@@ -36,8 +36,8 @@
             <ul class="flex-column pl-2 nav">
                 <li class="nav-link" id="li" [routerLink]="getRoute('schedule')" routerLinkActive="active" >Timetable</li>
                 <li class="nav-link" id="li1" [routerLink]="getRoute('schedule')" routerLinkActive="active">TT</li>
-                <li class="nav-link" id="li" >Calander</li>
-                <li class="nav-link" id="li1">Cal</li>
+                <li class="nav-link" id="li" [routerLink]="getRoute('calendar')" routerLinkActive="active" >Calendar</li>
+                <li class="nav-link" id="li1" [routerLink]="getRoute('calendar')" routerLinkActive="active">Cal</li>
               </ul>
         </div>
         <div class="nav-link" [routerLink]="getRoute('message')" routerLinkActive="active">

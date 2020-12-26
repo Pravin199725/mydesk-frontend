@@ -1,22 +1,25 @@
 <div *ngIf="!isMobileView">
-
-    <app-header></app-header>
-    <div class="wrapper">
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper" style="margin-top: 47px;">
         <!-- Sidebar  -->
         <!-- <app-header></app-header> -->
-        <app-sidebar [type]="'teacher'"></app-sidebar>
+        <div class="fixed-sidebar">
+            <app-sidebar [type]="'teacher'"></app-sidebar>
+        </div>
 
         <!-- Page Content  -->
-        <div id="content">
-
+        <div id="content" class="courseContent ">
             <app-common-home [type]="'teacher'"></app-common-home>
         </div>
     </div>
 </div>
 
 <div *ngIf="isMobileView">
-    <app-header></app-header>
-    <app-mobile-header></app-mobile-header>
+    <app-header [ngClass]='{"fixed-top": isMobileView}'>
+    </app-header>
+    <app-mobile-header [type]="'teacher'"></app-mobile-header>&nbsp;
     <app-common-home [type]="'teacher'"></app-common-home>
     <app-footer [type]="'teacher'"></app-footer>
 </div>

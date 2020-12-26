@@ -8,5 +8,14 @@
     text-align: left;
     color: #ffffff;
 } 
-
+.ellipsi{
+    padding-left: 10px;
+  padding-top: 8px;
+  text-overflow: ellipsis;
+  width: 90%;
+  margin-left: -50px;
+  text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+}
 

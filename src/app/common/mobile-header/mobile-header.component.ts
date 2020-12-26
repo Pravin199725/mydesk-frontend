@@ -1,5 +1,6 @@
 import { animate } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mobile-header.component.scss']
 })
 export class MobileHeaderComponent implements OnInit {
-  
+  @Input() type: string = 'student';
   announcements = [
     {
       date: '8',
@@ -103,7 +104,7 @@ export class MobileHeaderComponent implements OnInit {
       des:' Quadratic Equation'
     }
   ]
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -125,4 +126,9 @@ export class MobileHeaderComponent implements OnInit {
     document.getElementById("btn1").style.display = "inline";
     document.getElementById("btn2").style.display = "none";
     }
+    goToLec() {
+    
+      this.router.navigate([`/student/lecture`]);
+    
+  }
 }

@@ -1,9 +1,16 @@
-<app-header></app-header>
-<div class="wrapper" *ngIf="!isMobileView">
-  <!-- Sidebar  -->
-  <app-sidebar [type]="'teacher'"></app-sidebar>
-  <!-- Page Content  -->
-  <div id="content">
+<div *ngIf="!isMobileView">
+  <div class="fixed-top">
+      <app-header></app-header>
+  </div>
+  <div class="wrapper" style="margin-top: 47px;">
+      <!-- Sidebar  -->
+      <!-- <app-header></app-header> -->
+      <div class="fixed-sidebar">
+          <app-sidebar [type]="'teacher'"></app-sidebar>
+      </div>
+
+      <!-- Page Content  -->
+      <div id="content" class="courseContent ">
     <app-weekview></app-weekview>
   </div>
 </div>

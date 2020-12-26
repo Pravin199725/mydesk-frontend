@@ -1,17 +1,17 @@
-<div *ngIf="!isMobileView && !openGradeView" style="background: #EBECF0;">
+<div *ngIf="!isMobileView && !openGradeView" style="background: #EBECF0; ">
 
     <table id="customers" style="width: 100%; padding-top: 30px; border-bottom: 1px solid #000000;">
         <thead>
 
             <tr class="header">
                 <th class="text-left" style="padding-left: 60px;" > Item</th>
-                <th class="text-center" style="padding-left: 250px;"> Status</th>
+                <th class="text-center" style="padding-left: 220px;"> Status</th>
                 <th class="text-center" style="padding-left: 60px;"> Due Date</th>
                 <th class="text-center" style="padding-left:60px;"> Obtained Marks</th>
             </tr>
         </thead>
         </table>
-        <button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="openGrade()" style=" background-color: #ffffff; width: 98%; padding: 5px;">
+        <button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="goToLec()" style=" background-color: #ffffff; width: 98%; padding: 5px;">
             <div class="d-flex justify-content-between p-2">
              
                 <div class="d-flex">
@@ -220,8 +220,8 @@
     </table>
 
 </div>-->
-<div *ngIf="isMobileView && !openGradeView" class="m-3">
-<button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="openGrade()" style=" background-color: #ffffff; width: 92%; padding: 5px;">
+<div *ngIf="isMobileView && !openGradeView" class="m-3" style="padding-top: 20px;">
+<button type="button" class="cardDetailBox btn btn-block" *ngFor="let list of cousesList" (click)="goToLec()" style=" background-color: #ffffff; width: 92%; padding: 5px;">
     <div class="d-flex p-3">
         <span style="align-self: center;margin: 0px 5px;">
             <!--<img *ngIf="list.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">-->
@@ -261,7 +261,7 @@
         </span>
         <div class="w-100" style=" margin-left: 1rem;">
             <div class="d-flex">
-                    <h5 class="overflow ellipsis" style="width: 200px;"><b>{{list.title}}</b></h5>
+                    <h5 class="overflow ellipsis" style="width: 200px; font-size: 12px;"><b>{{list.title}}</b></h5>
                     
              </div>&nbsp;
          <div class=" d-flex justify-content-between p-2"  style="width: 80%;">
@@ -297,11 +297,11 @@
 </button>
 </div>
 
-<div *ngIf="isMobileView && openGradeView" class="m-3" style="background: white; margin-top: 110px;">
+<div *ngIf="isMobileView && openGradeView" class="m-3" style="background: white; padding-top: 20px;">
     <div class="card">
         <span class="card-header d-flex" style="font-size: 20px; text-align: left; background-color: #1B2D3F; color: #ffffff; padding-left: 50px;">
-            <img  style="margin: auto; margin-left: 5px;" height="25" src="../../../assets/img/edit (1).svg" alt="img">
-            <p class="overflow ellipsi" >Quadratic Equation Assignment vghf hgyg jhgyg</p>
+            <img  style="margin: auto; margin-left: 5px;" height="25" src="../../../assets/img/edit (1).svg" alt="img">&nbsp; &nbsp;
+            <p class="overflow ellipsi" >Quadratic Equation Assignment</p>
         </span>
         <div class="card-body" style="font-size: 15px; padding: 50px;">
             <p>Short Discription About the Assignment In that structure of assignment Short Discription About the

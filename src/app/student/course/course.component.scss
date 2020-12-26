@@ -103,6 +103,7 @@
 }
 
 .upcoming {
+  margin: auto;
   border: 1px solid#0EB11E;
   border-radius: 10px;
   padding-left: 10px;
@@ -112,6 +113,7 @@
 }
 
 .overdue {
+  margin: auto;
   border: 1px solid#F50505;
   border-radius: 10px;
   padding-left: 10px;
@@ -144,4 +146,10 @@ div.scrollmenu {
       white-space: nowrap;
       overflow: hidden;
   }
+  h5[aria-expanded=true] #down {
+    display: none;
+ }
+ h5[aria-expanded=false] #up {
+    display: none;
+ }
  

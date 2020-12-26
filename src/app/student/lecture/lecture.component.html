@@ -17,8 +17,20 @@
 </div>
 
 <div *ngIf="isMobileView">
-    <div style="margin-top: 70px;">
-    <app-header></app-header>
+    <div style="margin-top: 100px;">
+        <div class="couse-header" style="background: #1b2d3f;" [ngClass]='{"fixed-top": isMobileView}'>
+
+            <div class="d-flex ">
+                
+                    <button type="button" class="btn" style="padding-top: 10px; padding-bottom: 25px;" (click)="goBack()"><img class="m-2" height="25" src="../../../assets/img/left-arrow.svg" alt="img"></button>
+                <h1 style="margin: auto;  font-size: 3rem; padding-top: 25px; padding-bottom: 25px; color: #ffffff; padding-right: 10%; ">Computer</h1>
+            
+                <!--<h3 style="font-size: 2rem;">Mr Patil</h3-->
+                <!--<div  class="text-right" style="margin-top: -60px; padding-bottom: 30px;">-->
+               </div>
+           
+        </div>
+        
     <app-assignment></app-assignment>
     </div>
     <app-footer [type]="'student'"></app-footer>

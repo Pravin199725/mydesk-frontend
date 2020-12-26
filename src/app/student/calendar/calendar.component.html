@@ -1,0 +1,32 @@
+<div *ngIf="!isMobileView">
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper" style="margin-top: 47px;">
+        <!-- Sidebar  -->
+        <!-- <app-header></app-header> -->
+        <div class="fixed-sidebar">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div id="content" class="courseContent ">
+            <full-calendar [options]="calendarOptions" style="font-size: 15px;"></full-calendar>
+          </div>
+  <!-- Page Content  -->
+  </div>
+</div>
+<div *ngIf="isMobileView">
+    <div class="fixed-top">
+        <app-header></app-header>
+    </div>
+    <div class="wrapper" >
+       
+        <div id="content" class="courseContent ">
+            <full-calendar [options]="calendarOptions" style="font-size: 15px;"></full-calendar>
+          </div>
+  <!-- Page Content  -->
+  </div>
+  <app-footer [type]="'student'" *ngIf="isMobileView"></app-footer>
+</div>
+
+ 
+

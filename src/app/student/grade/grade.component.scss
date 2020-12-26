@@ -144,7 +144,7 @@ table#customers {
     text-overflow: ellipsis;
   }
   .ellipsis{
-    font-size: 16px;
+    
     padding-top: 8px;
     text-overflow: ellipsis;
     width: 15em;
@@ -153,6 +153,7 @@ table#customers {
       overflow: hidden;
   }
   .ellipsi{
+      padding-left: 10px;
     padding-top: 8px;
     text-overflow: ellipsis;
     width: 90%;

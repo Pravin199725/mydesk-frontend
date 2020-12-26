@@ -15,6 +15,9 @@ import { RecentComponent } from './recent/recent.component';
 import { TimetableComponent } from './timetable/timetable.component';
 import { WeekviewComponent } from './timetable/weekview/weekview.component';
 import { DayviewComponent } from './timetable/dayview/dayview.component';
+import { LiveComponent } from './live/live.component';
+import { LectureComponent } from './lecture/lecture.component';
+import { CheckComponent } from './check/check.component';
 
 
 @NgModule({
@@ -29,7 +32,7 @@ import { DayviewComponent } from './timetable/dayview/dayview.component';
     RecentComponent, 
     TimetableComponent, 
     WeekviewComponent, 
-    DayviewComponent
+    DayviewComponent, LiveComponent, LectureComponent, CheckComponent
   ],
   imports: [
     TeacherRoutingModule,

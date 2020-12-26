@@ -1,0 +1,122 @@
+<div class="d-flex flex-wrap pt-3" style="padding-bottom: 80px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 pt-5 ">
+      <button type="button" *ngIf="!isMobileView" class="btn float-right" style=" margin-top: -30px; "data-toggle="modal" data-target="#createAnounce" ><img  height="25" id="img" src="../../../assets/img/plus.svg"></button><br>
+            <div class="row m-0">
+               <h3 *ngIf="!isMobileView"><span>Today</span></h3>
+               <h2 *ngIf="isMobileView"><span>Today</span></h2>
+            </div>
+            <div class="mt-4" *ngFor="let subject of subjectData"  style="background: white; width: 100%;border-radius: 5px;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                <div class="d-flex justify-content-between p-2">
+                    <div>
+                        <span style="font-size: 1.5rem;" class="mr-3" *ngIf="type == 'teacher'">{{subject.class}}</span>
+                        <span style="font-size: 1.5rem; font-weight: bold;">{{subject.subjectName}}</span>
+                        <button style="border-radius: 5px;font-size: 10px;" class="ml-3" *ngIf="type == 'teacher'">+</button>
+                    </div>
+                    <button class="btn" style="border-radius: 5px;background: #1b2d3f;color: white; width: 100px; height: 28px; font-size: 12px;"  *ngIf="!isMobileView" ><b>Join Now</b></button>
+                    <button class="btn" style="border-radius: 5px;background:  #1b2d3f;color: white; width: 80px; height: 23px; font-size: 10px;"  *ngIf="isMobileView" ><b>Join Now</b></button>
+                </div>
+                <hr style="margin: 0px 5px; border-top:1px solid lightgray; padding-left: 1px;" />
+                <div class="d-flex justify-content-between p-2">
+                    <span style="font-size: 11px; color: #757575;">Speaker name: {{subject.teacherName}} </span>
+                    <span style="font-size: 11px; color: #000000;">{{subject.date}} : {{subject.start}} to {{subject.end}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 pt-5 ">
+            <div class="row m-0">
+              <h3 *ngIf="!isMobileView"><span>Upcoming</span> </h3>
+                <h2 *ngIf="isMobileView"><span>Upcoming</span></h2>
+             </div>
+             <div class="mt-4" *ngFor="let subject of upcoming"  style="background: white; width: 100%;border-radius: 5px;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                 <div class="d-flex justify-content-between p-2">
+                     <div>
+                         <span style="font-size: 1.5rem;" class="mr-3" *ngIf="type == 'teacher'">{{subject.class}}</span>
+                         <span style="font-size: 1.5rem; font-weight: bold;">{{subject.subjectName}}</span>
+                         <button style="border-radius: 5px;font-size: 12px;" class="ml-3" *ngIf="type == 'teacher'">+</button>
+                     </div>
+                     <button class="btn" style="border-radius: 5px;background: #1b2d3f;color: white; width: 100px; height: 28px; font-size: 12px; "  *ngIf="!isMobileView" ><b>Join Now</b></button>
+                     <button class="btn" style="border-radius: 5px;background: #1b2d3f;color: white; width: 80px; height: 23px; font-size: 10px;"  *ngIf="isMobileView" ><b>Join Now</b></button>
+                 </div>
+                 <hr style="margin: 0px 5px; border-top:1px solid lightgray; padding-left: 1px;" />
+                 <div class="d-flex justify-content-between p-2">
+                     <span style="font-size: 11px; color: #757575;">Speaker name: {{subject.teacherName}} </span>
+                     <span style="font-size: 11px; color: #000000;">{{subject.date}} : {{subject.start}} to {{subject.end}} </span>
+                 </div>
+             </div>
+ </div>
+  </div>
+  <button type="button"*ngIf="isMobileView"  class="btn float-right"  data-toggle="modal" data-target="#createAnounce" style=" position: fixed; margin-top: -180px; right: 0px;"><img  height="30" id="img" src="../../../assets/img/plus.svg"></button>
+
+  <div class="modal fade" id="createAnounce" role="dialog" style="margin-top: 50px; padding-bottom: 100px;">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="d-flex modal-title"><div style="color: #ffffff; font-size: 25px;">+</div>&nbsp;&nbsp;<div style="padding-top: 5px; font-size: 20px;">Create Live Session</div></h4>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+  
+                <form action="">
+                  <div class="form-group">
+                    <label for="title" style="font-size: 15px;">Subject</label>
+                    <input type="text" style="font-size: 15px;" class="form-control" id="sub" placeholder="Enter subject" name="sub">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">chapter name</label>
+                    <input type="text" style="font-size: 15px;" class="form-control" id="chap" placeholder="Enter chapter" name="chap">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Video link</label>
+                    <input type="text" style="font-size: 15px;" class="form-control" id="link" placeholder="Enter video link" name="link">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Speaker's name</label>
+                    <input type="textarea" style="font-size: 15px;" class="form-control" id="speak" placeholder="Enter description" name="speak">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Date</label>
+                    <input type="date" style="font-size: 15px;" class="form-control" id="date" placeholder="Enter date" name="date">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">start Time </label>
+                    <input type="time" style="font-size: 15px;" class="form-control" id="time" placeholder="start time" name="time">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">End Time </label>
+                    <input type="time" style="font-size: 15px;" class="form-control" id="etime" placeholder="end time" name="etime">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Attach File </label>
+                  <div class="custom-file mb-3 " style="font-size: 15px;">
+                    <input type="file" class="custom-file-input" id="customFile" name="filename">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-block" style="background-color: #1b2d3f; color: #ffffff; font-size: 15px;">Submit</button>
+                </form>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+  

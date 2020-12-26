@@ -25,7 +25,8 @@ export class AssignmentComponent implements OnInit {
     });
   }
 
-  closeGrade() {
-    this.router.navigate([`/student/course`])
+  
+  goBack() {
+    window.history.back();
   }
 }

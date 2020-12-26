@@ -11,6 +11,7 @@ import { LectureComponent } from './lecture/lecture.component';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { LiveComponent } from './live/live.component';
 import { MoreComponent } from './more/more.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -61,7 +62,10 @@ const routes: Routes = [
     path: 'more',
     component: MoreComponent
   },
-
+  {
+    path: 'calendar',
+    component: CalendarComponent
+  }
 ];
 
 @NgModule({

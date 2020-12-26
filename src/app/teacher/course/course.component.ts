@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MobileViewService } from 'src/app/services/mobileView/mobile-view.service';
 
 @Component({
@@ -9,37 +10,59 @@ import { MobileViewService } from 'src/app/services/mobileView/mobile-view.servi
 export class CourseComponent implements OnInit {
 
   public isMobileView;
-  public cousesList : any[] = [1,2,3,4,5,6,7]
+  public cousesList: any[] = [
+    {
+      title: 'Lecture: Maths',
+      msg: 'This is short description of Lecture this paragraph for the testing of overflow text in this div',
+      uploaded: '5th June ',
+      type: 'Lecture',
+    },
+    {
+      title: 'Assignment - Maths with differential',
+      msg: 'This is short description of Lecture this paragraph for the testing of overflow text in this div',
+      uploaded: '5th June ',
+      type: 'Assignment',
+      tag: 'Upcoming',
+    },
+    {
+      title: 'Quiz - Quadratic Equation',
+      msg: 'This is short description of Lecture this paragraph for the testing of overflow text in this div jahdj fkhasd hasjdgh fgsahfadh udafiuahsdfg uaisd asduiasgu  adhiugasdiuc uduias ajdhskAHDIJiajd kansdkaIO',
+      uploaded: '5th June ',
+      type: 'Quiz',
+      tag: 'Overdue',
+    }
+  ]
   public weekLists: any[] = [{
     id: 1,
     week: '1st - 3rd',
-    status: 'done',
+    status: 'active',
     isCurrent: false
-  },{
-    id:2,
+  }, {
+    id: 2,
     week: '4th - 10th',
     status: 'active',
     isCurrent: false
-  },{
-    id:3,
+  }, {
+    id: 3,
     week: '11th - 17th',
-    status: 'inactive',
+    status: 'active',
     isCurrent: true
-  },{
-    id:4,
+  }, {
+    id: 4,
     week: '18th - 24th',
     status: 'inactive',
     isCurrent: false
-  },{
-    id:5,
+  }, {
+    id: 5,
     week: '25th - 31th',
     status: 'inactive',
     isCurrent: false
   }];
 
-  public currentWeek: { id: number, week: string, status: string} = this.weekLists[2];
+  public currentWeek: { id: number, week: string, status: string } = this.weekLists[2];
+  openGradeView: boolean;
 
-  constructor(private responsiveService: MobileViewService) {
+  constructor(private router: Router, private responsiveService: MobileViewService) {
     // const scrollFunction = this.scroll.bind(this);
     // window.onscroll = function() {
     //   scrollFunction()
@@ -49,7 +72,7 @@ export class CourseComponent implements OnInit {
   ngOnInit() {
     this.onResize();
     this.responsiveService.checkWidth();
-   
+
   }
 
   onResize() {
@@ -57,22 +80,35 @@ export class CourseComponent implements OnInit {
       this.isMobileView = isMobile;
     });
   }
-
- scroll() {
-  // if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 150) {
-  //   document.getElementById("couse-header").classList.add('d-none');
-  // } else {
-  //   document.getElementById("couse-header").classList.remove('d-none');
-  // }
+  goToCourse() {
+    
+      this.router.navigate([`/teacher/lecture`]);
+    
+  }
+  goBack(){
+    
+    this.router.navigate([`/teacher/home`]);
+  
 }
+ openGrade() {
+  this.openGradeView = true;
+ }
+
+  scroll() {
+    // if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 150) {
+    //   document.getElementById("couse-header").classList.add('d-none');
+    // } else {
+    //   document.getElementById("couse-header").classList.remove('d-none');
+    // }
+  }
 
   handleWeekChange(direction: string) {
-    const currentWeekIndex = this.weekLists.findIndex( v => v.id === this.currentWeek.id);
-    if(direction === 'left' && this.weekLists[currentWeekIndex - 1]) {
+    const currentWeekIndex = this.weekLists.findIndex(v => v.id === this.currentWeek.id);
+    if (direction === 'left' && this.weekLists[currentWeekIndex - 1]) {
       this.weekLists[currentWeekIndex].isCurrent = false;
       this.weekLists[currentWeekIndex - 1].isCurrent = true;
       this.currentWeek = this.weekLists[currentWeekIndex - 1];
-    } else  if(direction === 'right' && this.weekLists[currentWeekIndex + 1]) {
+    } else if (direction === 'right' && this.weekLists[currentWeekIndex + 1]) {
       this.weekLists[currentWeekIndex].isCurrent = false;
       this.weekLists[currentWeekIndex + 1].isCurrent = true;
       this.currentWeek = this.weekLists[currentWeekIndex + 1];

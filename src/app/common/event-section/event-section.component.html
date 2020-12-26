@@ -1,5 +1,6 @@
 <div class="pt-3">
-    <h1><span>Announcement</span></h1>
+  <button type="button" class="btn float-right" style="margin: auto; margin-top: -10px; background-color: #ebecf0;" data-toggle="modal" data-target="#createAnounce" *ngIf="type == 'teacher'"><img  height="25" id="img" src="../../../assets/img/plus.svg"></button>
+    <h1 ><span>Announcement</span> </h1>
     <div class="p-2" style="background: white; width: 100%;border-radius: 5px; max-height: 195px;overflow-y: auto;">
         <div class="d-flex flex-column" style="margin: 0px 5px;">
             <!-- <h5>Announcement 1</h5> -->
@@ -40,6 +41,57 @@
 
 </div><br><br>
 
+<div class="modal fade" id="createAnounce" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="d-flex modal-title"><div style="color: #ffffff; font-size: 25px;">+</div>&nbsp;&nbsp;<div style="padding-top: 5px;">Create Announcement</div></h4>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+  
+                <form action="">
+                  <div class="form-group">
+                    <label for="title" style="font-size: 15px;">Announcement Title</label>
+                    <input type="text" style="font-size: 15px;" class="form-control" id="txt" placeholder="Enter title" name="title">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Announcement From</label>
+                    <input type="text" style="font-size: 15px;" class="form-control" id="from" placeholder="Enter announcement from" name="from">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Announcement Description</label>
+                    <input type="textarea" style="font-size: 15px;" class="form-control" id="des" placeholder="Enter description" name="decrip">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Event Date</label>
+                    <input type="date" style="font-size: 15px;" class="form-control" id="date" placeholder="Enter date" name="date">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Event Time </label>
+                    <input type="time" style="font-size: 15px;" class="form-control" id="time" placeholder="time" name="time">
+                  </div>
+                  <div class="form-group">
+                    <label for="from" style="font-size: 15px;">Attach File </label>
+                  <div class="custom-file mb-3 " style="font-size: 15px;">
+                    <input type="file" class="custom-file-input" id="customFile" name="filename">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-block" style="background-color: #1b2d3f; color: #ffffff; font-size: 15px;">Submit</button>
+                </form>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 <div class="pt-3">
     <h1><span>Upcomings</span></h1>
     <div class="p-2" style="background: white; width: 100%;border-radius: 5px;max-height: 195px;overflow-y: auto;">

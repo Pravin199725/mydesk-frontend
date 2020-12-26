@@ -12,10 +12,10 @@
         <div id="content" class="courseContent ">
 
 
-            <div class="couse-header" style="background: #409FE5;">
+            <div class="couse-header" style="background: #354658; height: 180px; margin-top: 5px;">
                 <div class="text-center" id="couse-header">
-                    <h1 class="courseName">Computer</h1>
-                    <h3 class="courseTeacher">Mr Patil</h3>
+                    <h1 class="courseName">Maths</h1>
+                    <h3 class="courseTeacher">9th B</h3>
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -37,109 +37,289 @@
                 </ul>
             </div>
 
-            <div class="tab-content" id="myTabContent" style="background: white;">
-                <div class="tab-pane fade show courseMonths active" id="classwork" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-content" id="myTabContent" >
+                <div class="tab-pane fade show courseMonths active" id="classwork" role="tabpanel"
+                    aria-labelledby="home-tab">
 
                     <div class="accordion p-2" id="accordionExample">
                         <div class="card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header">
                                 <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne"
                                     aria-expanded="true" aria-controls="collapseOne">
                                     <span class="courseMonth">
                                         October
                                     </span>
-                                    <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                                    <img class="m-2" id="down" height="20" src="../../../assets/img/up-arrow (2).svg" alt="img">
+                                    <img class="m-2" id="up" height="20" src="../../../assets/img/up-arrow (1).svg" alt="img">
 
                                 </h5>
                             </div>
 
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            <div id="collapseOne" class="collapse show"
                                 data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <app-dot-progress-bar [weekLists]="weekLists"></app-dot-progress-bar>
-                                    <div class="cardDetail">
-                                        <div class="d-flex justify-content-between p-2 m-3" style="font-size: 24px;">
-                                            <span class="pointer" (click)="handleWeekChange('left')"><</span>
-                                            <span>{{ currentWeek.week }}</span>
-                                            <span class="pointer" (click)="handleWeekChange('right')">></span>
+                                <div class="card-body ">
+                                   
+                                    <button type="button" class="btn " style=" padding-left: 10px; " data-toggle="dropdown" ><img  height="30" id="img" src="../../../assets/img/plus.svg"></button>
+                                        <ul class="dropdown-menu" style="width: 150px;">
+                                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#lecture" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;" >lecture</button></li>
+                                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#assignment" style="font-size: 16px; border-bottom: 1px solid#c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Assignment</button></li>
+                                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#quiz" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Quiz</button></li>
+                                        </ul>
+                                    
+                                    <div style="margin-top: -25px;"><app-dot-progress-bar [weekLists]="weekLists"></app-dot-progress-bar></div>
+                                    
+                                     <div class="cardDetail">
+                                        <div class="d-flex justify-content-between p-2 m-3" >
+                                            <span class="pointer" (click)="handleWeekChange('left')" style="background-color: #1b2d3f; color: #ffffff; display: flex; border-radius: 10px;  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                                                &nbsp;<b style="font-size: 24px; padding-right: 10px;"><<</b>&nbsp;<div style="font-size: 18px; margin-top: 5px;padding-right: 10px;">Prev</div> &nbsp;</span> 
+                                                <span style="font-size: 24px;">{{ currentWeek.week }}</span>
+                                            <span class="pointer" (click)="handleWeekChange('right')" style="background-color: #1b2d3f; color: #ffffff;  display: flex; border-radius: 10px;  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                                                &nbsp;<div style="font-size: 18px;margin-top: 5px; padding-right: 10px;padding-left: 10px;">Next</div>&nbsp;<b style="font-size: 24px;">>></b> &nbsp;</span>
                                         </div>
-                                        <div class="cardDetailBox" *ngFor="let list of cousesList">
+                                        <button type="button" class="cardDetailBox btn-block" *ngFor="let list of cousesList" (click)="goToCourse()">
                                             <div class="d-flex p-3">
                                                 <span style="align-self: center;margin: 0px 15px;">
-                                                <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.4" d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z" fill="#200E32"/>
+                                                    <img *ngIf="list.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Assignment'" height="28" src="../../../assets/img/exam.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Quiz'" height="28" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                                    <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                                                        viewBox="0 0 31 30" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                                                            fill="#200E32" />
                                                     </svg>
+                                                    <svg *ngIf="list.type == 'Assignment'" width="25" height="25"
+                                                        viewBox="0 0 25 25" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                                                            fill="#200E32" />
+                                                        <path
+                                                            d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                                                            fill="#200E32" />
+                                                    </svg>
+                                                    <svg *ngIf="list.type == 'Quiz'" width="25" height="25"
+                                                        viewBox="0 0 25 25" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                                                            fill="#200E32" />
+                                                        <path
+                                                            d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                                                            fill="#200E32" />
+                                                        <path opacity="0.4"
+                                                            d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                                                            fill="#200E32" />
+                                                    </svg>-->
                                                 </span>
                                                 <div class="w-100" style="align-self: center; margin-left: 2rem;">
-                                                    <h5> Title of course</h5>
-                                                    <p class="m-0">This is short discription</p>
-                                                    <p class="m-0">Uploaded on: 5th June</p>
+                                                    <div class="d-flex">
+                                                        <h4><b> {{list.title}}</b></h4>
+                                                        <span *ngIf="list.tag == 'Upcoming'"
+                                                            class="ml-5 upcoming">Upcoming</span>
+                                                        <span *ngIf="list.tag == 'Overdue'"
+                                                            class="ml-5 overdue">Overdue</span>
+                                                    </div>
+                                                    <p class="overflow ellipsis m-0" style="color: #757575;">{{list.msg}}</p>&nbsp;
+                                                    <p class="m-0" style="color: #757575; font-size: 12px;">Uploaded on: {{list.uploaded}}</p>
                                                 </div>
                                                 <span style="align-self: center;margin: 0px 10px;">
-                                                    <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <rect y="0.801559" width="30" height="26.9845" fill="url(#pattern0)"/>
-                                                    <defs>
-                                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                    <use xlink:href="#image0" transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)"/>
-                                                    </pattern>
-                                                    <image id="image0" width="68" height="67" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII="/>
-                                                    </defs>
-                                                    </svg>
-                                                </span>    
+                                                    <img height="25" src="../../../assets/img/download.svg" alt="img">
+                                                </span>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </button    >
+                                     </div>
+                                    
+                                
                                 </div>
                             </div>
                         </div>
-
+                        <div class="modal fade" id="lecture" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  
+                                  <h4 class="d-flex modal-title"><div style="color: #ffffff; font-size: 25px;">+</div>&nbsp;&nbsp;<div style="padding-top: 5px;">Create lecture</div></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                          
+                                        <form action="">
+                                          <div class="form-group">
+                                            <label for="title" style="font-size: 15px;">Subject</label>
+                                            <input type="text" style="font-size: 15px;" class="form-control" id="sub" placeholder="Enter subject" name="sub">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">chapter name</label>
+                                            <input type="text" style="font-size: 15px;" class="form-control" id="chap" placeholder="Enter chapter" name="chap">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Description</label>
+                                            <input type="textarea" style="font-size: 15px;" class="form-control" id="des" placeholder="Enter description" name="decrip">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Date</label>
+                                            <input type="date" style="font-size: 15px;" class="form-control" id="date" placeholder="Enter date" name="date">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Time </label>
+                                            <input type="time" style="font-size: 15px;" class="form-control" id="time" placeholder="time" name="time">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Attach File </label>
+                                          <div class="custom-file mb-3 " style="font-size: 15px;">
+                                            <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                          </div>
+                                        </div>
+                                          <button type="submit" class="btn btn-block" style="background-color: #1b2d3f; color: #ffffff; font-size: 15px;">Submit</button>
+                                        </form>
+                                      </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          <div class="modal fade" id="assignment" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  
+                                  <h4 class="d-flex modal-title"><div style="color: #ffffff; font-size: 25px;">+</div>&nbsp;&nbsp;<div style="padding-top: 5px;">Create Assignment</div></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                          
+                                        <form action="">
+                                          <div class="form-group">
+                                            <label for="title" style="font-size: 15px;">Subject</label>
+                                            <input type="text" style="font-size: 15px;" class="form-control" id="sub" placeholder="Enter title" name="sub">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Assignment Name</label>
+                                            <input type="text" style="font-size: 15px;" class="form-control" id="name" placeholder="Enter assignment name" name="name">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Description</label>
+                                            <input type="textarea" style="font-size: 15px;" class="form-control" id="des" placeholder="Enter description" name="decrip">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Date</label>
+                                            <input type="date" style="font-size: 15px;" class="form-control" id="date" placeholder="Enter date" name="date">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Due Date</label>
+                                            <input type="date" style="font-size: 15px;" class="form-control" id="ddate" placeholder="Enter date" name="ddate">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Time </label>
+                                            <input type="time" style="font-size: 15px;" class="form-control" id="time" placeholder="time" name="time">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="from" style="font-size: 15px;">Attach File </label>
+                                          <div class="custom-file mb-3 " style="font-size: 15px;">
+                                            <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                          </div>
+                                        </div>
+                                          <button type="submit" class="btn btn-block" style="background-color: #1b2d3f; color: #ffffff; font-size: 15px;">Submit</button>
+                                        </form>
+                                      </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseTwo"
-                                    aria-expanded="true" aria-controls="collapseTwo">
+                                    aria-expanded="false" aria-controls="collapseTwo">
                                     <span class="courseMonth">
                                         November
                                     </span>
-                                    <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                                    <img class="m-2" id="down" height="20" src="../../../assets/img/up-arrow (2).svg" alt="img">
+                                    <img class="m-2" id="up" height="20" src="../../../assets/img/up-arrow (1).svg" alt="img">
 
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                 data-parent="#accordionExample">
-                                <div class="card-body">
+                                <div class="card-body ">
                                     <app-dot-progress-bar [weekLists]="weekLists"></app-dot-progress-bar>
                                     <div class="cardDetail">
-                                        <div class="d-flex justify-content-between p-2 m-3" style="font-size: 24px;">
-                                            <span class="pointer" (click)="handleWeekChange('left')"><</span>
-                                            <span>{{ currentWeek.week }}</span>
-                                            <span class="pointer" (click)="handleWeekChange('right')">></span>
+                                        <div class="d-flex justify-content-between p-2 m-3" >
+                                            <span class="pointer" (click)="handleWeekChange('left')" style="background-color: #1b2d3f; color: #ffffff; display: flex;">
+                                                &nbsp;<b style="font-size: 24px; padding-right: 10px;"><<</b>&nbsp;<div style="font-size: 18px; margin-top: 5px;">Prev</div> &nbsp;</span> <span style="font-size: 24px;">{{ currentWeek.week }}
+                                            </span>
+                                            <span class="pointer" (click)="handleWeekChange('right')" style="background-color: #1b2d3f; color: #ffffff;  display: flex;">&nbsp;<div style="font-size: 18px;margin-top: 5px; padding-right: 10px;">Next</div>&nbsp;<b style="font-size: 24px;">>></b> &nbsp;</span>
                                         </div>
-                                        <div class="cardDetailBox" *ngFor="let list of cousesList">
+                                        <button type="button" class="cardDetailBox btn-block" *ngFor="let list of cousesList" (click)="goToCourse()">
                                             <div class="d-flex p-3">
                                                 <span style="align-self: center;margin: 0px 15px;">
-                                                <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.4" d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z" fill="#200E32"/>
+                                                    <img *ngIf="list.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Assignment'" height="28" src="../../../assets/img/exam.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Quiz'" height="28" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                                    <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                                                        viewBox="0 0 31 30" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                                                            fill="#200E32" />
                                                     </svg>
+                                                    <svg *ngIf="list.type == 'Assignment'" width="25" height="25"
+                                                        viewBox="0 0 25 25" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                                                            fill="#200E32" />
+                                                        <path
+                                                            d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                                                            fill="#200E32" />
+                                                    </svg>
+                                                    <svg *ngIf="list.type == 'Quiz'" width="25" height="25"
+                                                        viewBox="0 0 25 25" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                                                            fill="#200E32" />
+                                                        <path
+                                                            d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                                                            fill="#200E32" />
+                                                        <path opacity="0.4"
+                                                            d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                                                            fill="#200E32" />
+                                                    </svg>-->
                                                 </span>
                                                 <div class="w-100" style="align-self: center; margin-left: 2rem;">
-                                                    <h5> Title of course</h5>
-                                                    <p class="m-0">This is short discription</p>
-                                                    <p class="m-0">Uploaded on: 5th June</p>
+                                                    <div class="d-flex">
+                                                        <h4><b> {{list.title}}</b></h4>
+                                                        <span *ngIf="list.tag == 'Upcoming'"
+                                                            class="ml-5 upcoming">Upcoming</span>
+                                                        <span *ngIf="list.tag == 'Overdue'"
+                                                            class="ml-5 overdue">Overdue</span>
+                                                    </div>
+                                                    <p class="overflow ellipsis m-0" style="color: #757575;">{{list.msg}}</p>&nbsp;
+                                                    <p class="m-0" style="color: #757575; font-size: 12px;">Uploaded on: {{list.uploaded}}</p>
                                                 </div>
                                                 <span style="align-self: center;margin: 0px 10px;">
-                                                    <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <rect y="0.801559" width="30" height="26.9845" fill="url(#pattern0)"/>
-                                                    <defs>
-                                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                    <use xlink:href="#image0" transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)"/>
-                                                    </pattern>
-                                                    <image id="image0" width="68" height="67" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII="/>
-                                                    </defs>
-                                                    </svg>
-                                                </span>    
+                                                    <img height="25" src="../../../assets/img/download.svg" alt="img">
+                                                </span>
                                             </div>
-                                        </div>
+                                        </button    >
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -147,89 +327,197 @@
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseThree"
-                                    aria-expanded="true" aria-controls="collapseThree">
+                                    aria-expanded="false" aria-controls="collapseThree">
                                     <span class="courseMonth">
                                         December
                                     </span>
-                                    <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                                    <img class="m-2" id="down" height="20" src="../../../assets/img/up-arrow (2).svg" alt="img">
+                                    <img class="m-2" id="up" height="20" src="../../../assets/img/up-arrow (1).svg" alt="img">
 
                                 </h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                 data-parent="#accordionExample">
-                                <div class="card-body">
+                                <div class="card-body ">
                                     <app-dot-progress-bar [weekLists]="weekLists"></app-dot-progress-bar>
                                     <div class="cardDetail">
-                                        <div class="d-flex justify-content-between p-2 m-3" style="font-size: 24px;">
-                                            <span class="pointer" (click)="handleWeekChange('left')"><</span>
-                                            <span>{{ currentWeek.week }}</span>
-                                            <span class="pointer" (click)="handleWeekChange('right')">></span>
+                                        <div class="d-flex justify-content-between p-2 m-3" >
+                                            <span class="pointer" (click)="handleWeekChange('left')" style="background-color: #1b2d3f; color: #ffffff; display: flex;">
+                                                &nbsp;<b style="font-size: 24px; padding-right: 10px;"><<</b>&nbsp;<div style="font-size: 18px; margin-top: 5px;">Prev</div> &nbsp;</span> <span style="font-size: 24px;">{{ currentWeek.week }}
+                                            </span>
+                                            <span class="pointer" (click)="handleWeekChange('right')" style="background-color: #1b2d3f; color: #ffffff;  display: flex;">&nbsp;<div style="font-size: 18px;margin-top: 5px; padding-right: 10px;">Next</div>&nbsp;<b style="font-size: 24px;">>></b> &nbsp;</span>
                                         </div>
-                                        <div class="cardDetailBox" *ngFor="let list of cousesList">
+                                        <button type="button" class="cardDetailBox btn-block" *ngFor="let list of cousesList" (click)="goToCourse()">
                                             <div class="d-flex p-3">
                                                 <span style="align-self: center;margin: 0px 15px;">
-                                                <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.4" d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z" fill="#200E32"/>
+                                                    <img *ngIf="list.type == 'Lecture'" height="28" src="../../../assets/img/google-docs.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Assignment'" height="28" src="../../../assets/img/exam.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Quiz'" height="28" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                                    <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                                                        viewBox="0 0 31 30" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                                                            fill="#200E32" />
                                                     </svg>
+                                                    <svg *ngIf="list.type == 'Assignment'" width="25" height="25"
+                                                        viewBox="0 0 25 25" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                                                            fill="#200E32" />
+                                                        <path
+                                                            d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                                                            fill="#200E32" />
+                                                    </svg>
+                                                    <svg *ngIf="list.type == 'Quiz'" width="25" height="25"
+                                                        viewBox="0 0 25 25" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4"
+                                                            d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                                                            fill="#200E32" />
+                                                        <path
+                                                            d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                                                            fill="#200E32" />
+                                                        <path opacity="0.4"
+                                                            d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                                                            fill="#200E32" />
+                                                    </svg>-->
                                                 </span>
                                                 <div class="w-100" style="align-self: center; margin-left: 2rem;">
-                                                    <h5> Title of course</h5>
-                                                    <p class="m-0">This is short discription</p>
-                                                    <p class="m-0">Uploaded on: 5th June</p>
+                                                    <div class="d-flex">
+                                                        <h4><b> {{list.title}}</b></h4>
+                                                        <span *ngIf="list.tag == 'Upcoming'"
+                                                            class="ml-5 upcoming">Upcoming</span>
+                                                        <span *ngIf="list.tag == 'Overdue'"
+                                                            class="ml-5 overdue">Overdue</span>
+                                                    </div>
+                                                    <p class="overflow ellipsis m-0" style="color: #757575;">{{list.msg}}</p>&nbsp;
+                                                    <p class="m-0" style="color: #757575; font-size: 12px;">Uploaded on: {{list.uploaded}}</p>
                                                 </div>
                                                 <span style="align-self: center;margin: 0px 10px;">
-                                                    <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <rect y="0.801559" width="30" height="26.9845" fill="url(#pattern0)"/>
-                                                    <defs>
-                                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                    <use xlink:href="#image0" transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)"/>
-                                                    </pattern>
-                                                    <image id="image0" width="68" height="67" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII="/>
-                                                    </defs>
-                                                    </svg>
-                                                </span>    
+                                                    <img height="25" src="../../../assets/img/download.svg" alt="img">
+                                                </span>
                                             </div>
-                                        </div>
-                                
+                                        </button    >
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+                <!--<div class="tab-pane fade" *ngIf="openGradeView" id="discussion" role="tabpanel" aria-labelledby="profile-tab">
+                    <app-assignment></app-assignment>
+                </div>-->
                 <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="profile-tab">
                     <app-discussions></app-discussions>
                 </div>
                 <div class="tab-pane fade" id="grade" role="tabpanel" aria-labelledby="contact-tab">
                     <app-grade></app-grade>
                 </div>
-                <div class="tab-pane fade" id="live" role="tabpanel" aria-labelledby="contact-tab">live</div>
+                <div class="tab-pane fade" id="live" role="tabpanel" aria-labelledby="contact-tab">
+                    <app-live></app-live>
+                </div>
+                
 
             </div>
+            
 
         </div>
     </div>
 </div>
 
-<div *ngIf="isMobileView" style="background: white;">
-    <app-header></app-header>
 
-    <div class="couse-header" style="background: #409FE5;">
 
-        <div class="text-center">
-            <h1 style="font-size: 3rem; padding-top: 10px;">Computer</h1>
-            <h3 style="font-size: 2rem;">Mr Patil</h3>
+<!-- <div class="m-4 d-flex" style="height: 100vh;" *ngIf="!isMobileView">
+    <div class="col-3 h-100" style="border-right: 2px solid darkgrey;">
+
+        <div class="m-1">
+            <a class="mb-2 mt-2" style="font-size: 24px;" type="button" data-toggle="collapse" data-target="#classwork"
+                aria-expanded="false" aria-controls="classwork">
+                Classwork </a>
+            <div class="collapse" id="classwork">
+                <div class="card card-body">
+                    Classwork
+                </div>
+            </div>
+            <br />
+            <a class="mb-2 mt-2" style="font-size: 24px;" type="button" data-toggle="collapse" data-target="#discussion"
+                aria-expanded="false" aria-controls="discussion">
+                Discussion
+            </a>
+            <div class="collapse" id="discussion">
+                <div class="card card-body">
+                    Discussion
+                </div>
+            </div>
+
+            <br />
+
+
+            <a class="mb-2 mt-2" style="font-size: 24px;" type="button" data-toggle="collapse" data-target="#grade"
+                aria-expanded="false" aria-controls="grade">
+                Grade
+            </a>
+            <div class="collapse" id="grade">
+                <div class="card card-body">
+                    Grade
+                </div>
+            </div>
+
+            <br />
+
+
+            <a class="mb-2 mt-2" style="font-size: 24px;" type="button" data-toggle="collapse" data-target="#rate"
+                aria-expanded="false" aria-controls="rate">
+                Rate
+            </a>
+            <div class="collapse" id="rate">
+                <div class="card card-body">
+                    Rate
+                </div>
+            </div>
         </div>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+
+
+
+
+
+    </div>
+
+    <div class="col-9 h-100" style="background: red">
+
+    </div>
+</div> 
+<div *ngIf="!isMobileView && openGradeView" class="m-3" style="background: white;">
+    <app-lecture></app-lecture>
+</div>-->
+
+<div *ngIf="isMobileView" style="background: white;">
+   <!-- <app-header style="position: absolute; top: 0px; width: 100%;"></app-header>-->
+
+    <div class="couse-header" style="background: #1b2d3f;" [ngClass]='{"fixed-top": isMobileView}'>
+
+        <div class="d-flex justify-content-between p-2">
+            
+                <button type="button" class="btn" style="padding-top: 10px; padding-bottom: 25px;" (click)="goBack()"><img class="m-2" height="25" src="../../../assets/img/left-arrow.svg" alt="img"></button>
+            <h1 style="font-size: 3rem; padding-top: 25px; padding-bottom: 27px;">Computer</h1>
+        
+            <!--<h3 style="font-size: 2rem;">Mr Patil</h3-->
+            <!--<div  class="text-right" style="margin-top: -60px; padding-bottom: 30px;">-->
+            <button type="button" class="btn" style="right: 2px;" id="profile-tab" data-toggle="tab" href="#discussion" role="tab"
+            aria-controls="profile" aria-selected="false"><img class="m-2" height="25" src="../../../assets/img/chatting.svg" alt="img"></button>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style="font-size: 15px;">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#classwork" role="tab"
                     aria-controls="home" aria-selected="true">Classwork</a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#discussion" role="tab"
                     aria-controls="profile" aria-selected="false">Discussion</a>
-            </li>
+            </li>-->
             <li class="nav-item">
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#grade" role="tab" aria-controls="contact"
                     aria-selected="false">Grade</a>
@@ -242,182 +530,467 @@
     </div>
 
 
-    <div class="tab-content " id="myTabContent" style=" background: white;">
+    <div class="tab-content " id="myTabContent" style="background: #EBECF0; margin-top: 110px;">
         <div class="tab-pane fade show courseMonths active" id="classwork" role="tabpanel" aria-labelledby="home-tab">
 
             <div class="accordion p-2" id="accordionExample">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
+                <div class="card" style="border-radius: 10px;">
+                    <div class="card-header" id="headingOne" style="border-radius: 10px;">
                         <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                             aria-controls="collapseOne">
                             <span class="courseMonth">
                                 October
                             </span>
-                            <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                            <img class="m-2" id="down" height="12" src="../../../assets/img/up-arrow (2).svg" alt="img">
+                            <img class="m-2" id="up" height="12" src="../../../assets/img/up-arrow (1).svg" alt="img">
 
                         </h5>
                     </div>
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
-                        <div class="card-body">
+                        <div class="card-body" style="height: auto;">
                             <app-dot-progress-bar [weekLists]="weekLists"></app-dot-progress-bar>
-                            <div class="cardDetail">
-                                <div class="d-flex justify-content-between p-2 m-3 fw-600 " style="font-size: 12px;">
-                                    <span class="pointer" (click)="handleWeekChange('left')"><</span>
-                                    <span>{{ currentWeek.week }}</span>
-                                    <span class="pointer" (click)="handleWeekChange('right')">></span>
+                            
+                              <div id="cardDetail" class="cardDetail"  style="width: 100%; margin-left: 0px; height: auto;" >
+                                <div class="d-flex justify-content-between p-1 m-2 fw-600 " style="font-size: 12px;">
+                                    <span class="pointer" (click)="handleWeekChange('left')" style="font-size: 15px;">
+                                        <img class="m-2" id="up" height="15" src="../../../assets/img/next (1).svg" alt="img"></span> <span style="font-size: 15px;">{{ currentWeek.week }}
+                                    </span>
+                                    <span class="pointer" (click)="handleWeekChange('right')" style="font-size: 15px;"><img class="m-2" id="up" height="15" src="../../../assets/img/next.svg" alt="img"></span>
                                 </div>
-                                <div class="cardDetailBox" *ngFor="let list of cousesList">
-                                    <div class="d-flex p-3">
-                                        <span style="align-self: center;margin: 0px 15px;">
-                                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path opacity="0.4" d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z" fill="#200E32"/>
-                                            </svg>
-                                        </span>
-                                        <div class="w-100" style="align-self: center; margin-left: 2rem;">
-                                            <h5> Title of course</h5>
-                                            <p class="m-0">This is short discription</p>
-                                            <p class="m-0">Uploaded on: 5th June</p>
+                                <button type="button" class="cardDetailBox btn-block" *ngFor="let list of cousesList" (click)="goToCourse()" style="width: 92%; height:90px;">
+                                        <div class="d-flex p-2">
+                                            <span style="align-self: center;margin: 0px 5px;">
+                                                <img *ngIf="list.type == 'Lecture'" height="20" src="../../../assets/img/google-docs.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Assignment'" height="20" src="../../../assets/img/exam.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Quiz'" height="20" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                                    
+                                                <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                                                    viewBox="0 0 31 30" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                                                        fill="#200E32" />
+                                                </svg>
+                                                <svg *ngIf="list.type == 'Upcoming'" width="25" height="25"
+                                                    viewBox="0 0 25 25" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                                                        fill="#200E32" />
+                                                    <path
+                                                        d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                                                        fill="#200E32" />
+                                                </svg>
+                                                <svg *ngIf="list.type == 'Overdue'" width="25" height="25"
+                                                    viewBox="0 0 25 25" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                                                        fill="#200E32" />
+                                                    <path
+                                                        d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                                                        fill="#200E32" />
+                                                    <path opacity="0.4"
+                                                        d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                                                        fill="#200E32" />
+                                                </svg>-->
+                                            </span>
+                                            <div class="w-100" style=" margin-left: 1rem;">
+                                            <div class="d-flex">
+                                                    <h5 class="m-0" style="font-size: 12px; width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><b>{{list.title}}</b></h5>
+                                                    <span *ngIf="list.tag == 'Upcoming'"
+                                                            class="ml-2 upcoming">Upcoming</span>
+                                                        <span *ngIf="list.tag == 'Overdue'"
+                                                            class="ml-2 overdue">Overdue</span>
+                                                </div>
+                                                &nbsp;
+                                                <p class="m-0 " style="font-size: 11px; width: 250px; color:  #757575; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" >{{list.msg}}</p>
+                                                &nbsp;
+                                                <p class="m-0" style="font-size: 10px; color:  #757575; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Uploaded on: {{list.uploaded}}</p>
+                                            </div>
+                                            <button type="button" class="btn" style="align-self: right; margin-right: -10px">
+                                                <img height="20" src="../../../assets/img/download.svg" alt="img">
+                                                <!--<svg width="30" height="28" viewBox="0 0 30 28" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <rect y="0.801559" width="30" height="26.9845"
+                                                        fill="url(#pattern0)" />
+                                                    <defs>
+                                                        <pattern id="pattern0"
+                                                            patternContentUnits="objectBoundingBox" width="1"
+                                                            height="1">
+                                                            <use xlink:href="#image0"
+                                                                transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)" />
+                                                        </pattern>
+                                                        <image id="image0" width="68" height="67"
+                                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII=" />
+                                                    </defs>
+                                                </svg>-->
+                                            </button>
                                         </div>
-                                        <span style="align-self: center;margin: 0px 10px;">
-                                            <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <rect y="0.801559" width="30" height="26.9845" fill="url(#pattern0)"/>
-                                            <defs>
-                                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0" transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)"/>
-                                            </pattern>
-                                            <image id="image0" width="68" height="67" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII="/>
-                                            </defs>
-                                            </svg>
-                                        </span>    
-                                    </div>
-                                </div>
-                        
-                            </div>
+                                </button>
+
+                               </div>
+                               
                         </div>
+                       <button type="button" id="float" class="btn float-right"  data-toggle="dropdown" style=" position: relative; margin-top: -50px;"><img  height="30" id="img" src="../../../assets/img/plus.svg"></button>
+                                        <ul class="dropdown-menu" style="z-index: 999;  width: 150px;  position: relative; ">
+                                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#lecture" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;" >lecture</button></li>
+                                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#assignment" style="font-size: 16px; border-bottom: 1px solid#c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Assignment</button></li>
+                                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#quiz" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Quiz</button></li>
+                                        </ul>
                     </div>
+                    
                 </div>
 
-                <div class="card">
+                <div class="card" style="border-radius: 10px;">
                     <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                        <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                             aria-controls="collapseTwo">
                             <span class="courseMonth">
                                 November
                             </span>
-                            <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                            <img class="m-2" id="down" height="12" src="../../../assets/img/up-arrow (2).svg" alt="img">
+                            <img class="m-2" id="up" height="12" src="../../../assets/img/up-arrow (1).svg" alt="img">
 
                         </h5>
                     </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                        <div class="card-body">
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" style="height: auto;">
+                        <div class="card-body" style="height: auto;">
                             <app-dot-progress-bar [weekLists]="weekLists"></app-dot-progress-bar>
-                            <div class="cardDetail">
-                                <div class="d-flex justify-content-between p-2 m-3 fw-600 " style="font-size: 12px;">
-                                    <span class="pointer" (click)="handleWeekChange('left')"><</span>
-                                    <span>{{ currentWeek.week }}</span>
-                                    <span class="pointer" (click)="handleWeekChange('right')">></span>
+                            
+                              <div id="cardDetail" class="cardDetail"  style="width: 100%; margin-left: 0px; height: auto;" >
+                                <div class="d-flex justify-content-between p-1 m-2 fw-600 " style="font-size: 12px;">
+                                    <span class="pointer" (click)="handleWeekChange('left')" style="font-size: 15px;">
+                                        <img class="m-2" id="up" height="15" src="../../../assets/img/next (1).svg" alt="img"></span> <span style="font-size: 15px;">{{ currentWeek.week }}
+                                    </span>
+                                    <span class="pointer" (click)="handleWeekChange('right')" style="font-size: 15px;"><img class="m-2" id="up" height="15" src="../../../assets/img/next.svg" alt="img"></span>
                                 </div>
-
-                                <div class="cardDetailBox" *ngFor="let list of cousesList">
-                                    <div class="d-flex p-3">
-                                        <span style="align-self: center;margin: 0px 15px;">
-                                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path opacity="0.4" d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z" fill="#200E32"/>
-                                            </svg>
-                                        </span>
-                                        <div class="w-100" style="align-self: center; margin-left: 2rem;">
-                                            <h5> Title of course <span class="badge badge-danger">Overdue</span></h5>
-                                            <p class="m-0">This is short discription</p>
-                                            <p class="m-0">Uploaded on: 5th June</p>
+                                <button type="button" class="cardDetailBox btn-block" *ngFor="let list of cousesList" (click)="goToCourse()" style="width: 92%; height:90px;">
+                                        <div class="d-flex p-2">
+                                            <span style="align-self: center;margin: 0px 5px;">
+                                                <img *ngIf="list.type == 'Lecture'" height="20" src="../../../assets/img/google-docs.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Assignment'" height="20" src="../../../assets/img/exam.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Quiz'" height="20" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                                    
+                                                <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                                                    viewBox="0 0 31 30" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                                                        fill="#200E32" />
+                                                </svg>
+                                                <svg *ngIf="list.type == 'Upcoming'" width="25" height="25"
+                                                    viewBox="0 0 25 25" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                                                        fill="#200E32" />
+                                                    <path
+                                                        d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                                                        fill="#200E32" />
+                                                </svg>
+                                                <svg *ngIf="list.type == 'Overdue'" width="25" height="25"
+                                                    viewBox="0 0 25 25" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                                                        fill="#200E32" />
+                                                    <path
+                                                        d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                                                        fill="#200E32" />
+                                                    <path opacity="0.4"
+                                                        d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                                                        fill="#200E32" />
+                                                </svg>-->
+                                            </span>
+                                            <div class="w-100" style=" margin-left: 1rem;">
+                                            <div class="d-flex">
+                                                    <h5 class="m-0" style="font-size: 12px; width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><b>{{list.title}}</b></h5>
+                                                    <span *ngIf="list.tag == 'Upcoming'"
+                                                            class="ml-2 upcoming">Upcoming</span>
+                                                        <span *ngIf="list.tag == 'Overdue'"
+                                                            class="ml-2 overdue">Overdue</span>
+                                                </div>
+                                                &nbsp;
+                                                <p class="m-0 " style="font-size: 11px; width: 250px; color:  #757575; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" >{{list.msg}}</p>
+                                                &nbsp;
+                                                <p class="m-0" style="font-size: 10px; color:  #757575; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Uploaded on: {{list.uploaded}}</p>
+                                            </div>
+                                            <button type="button" class="btn" style="align-self: right; margin-right: -10px">
+                                                <img height="20" src="../../../assets/img/download.svg" alt="img">
+                                                <!--<svg width="30" height="28" viewBox="0 0 30 28" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <rect y="0.801559" width="30" height="26.9845"
+                                                        fill="url(#pattern0)" />
+                                                    <defs>
+                                                        <pattern id="pattern0"
+                                                            patternContentUnits="objectBoundingBox" width="1"
+                                                            height="1">
+                                                            <use xlink:href="#image0"
+                                                                transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)" />
+                                                        </pattern>
+                                                        <image id="image0" width="68" height="67"
+                                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII=" />
+                                                    </defs>
+                                                </svg>-->
+                                            </button>
                                         </div>
-                                        <span style="align-self: center;margin: 0px 10px;">
-                                            <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <rect y="0.801559" width="30" height="26.9845" fill="url(#pattern0)"/>
-                                            <defs>
-                                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0" transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)"/>
-                                            </pattern>
-                                            <image id="image0" width="68" height="67" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII="/>
-                                            </defs>
-                                            </svg>
-                                        </span>    
-                                    </div>
-                                </div>
-                        
-                            </div>
+                                </button>
+
+                               </div>
+                               
                         </div>
+                        <button type="button" id="float" class="btn float-right"  data-toggle="dropdown" style="position: relative; margin-top: -50px;"><img  height="30" id="img" src="../../../assets/img/plus.svg"></button>
+                        <ul class="dropdown-menu" style="width: 150px; position: relative;">
+                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#lecture" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;" >lecture</button></li>
+                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#assignment" style="font-size: 16px; border-bottom: 1px solid#c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Assignment</button></li>
+                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#quiz" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Quiz</button></li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="border-radius: 10px;">
                     <div class="card-header" id="headingThree">
-                        <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                        <h5 class="mb-0 d-flex" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                             aria-controls="collapseThree">
                             <span class="courseMonth">
                                 December
                             </span>
-                            <img class="m-2" height="12" src="../../../assets/img/Drop-Arrow.svg" alt="img">
+                            <img class="m-2" id="down" height="12" src="../../../assets/img/up-arrow (2).svg" alt="img">
+                            <img class="m-2" id="up" height="12" src="../../../assets/img/up-arrow (1).svg" alt="img">
 
                         </h5>
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                         data-parent="#accordionExample">
-                        <div class="card-body">
+                        <div class="card-body" style="height: auto;">
                             <app-dot-progress-bar [weekLists]="weekLists"></app-dot-progress-bar>
                             
-                            <div class="cardDetail">
-                                <div class="d-flex justify-content-between p-2 m-3 fw-600 " style="font-size: 12px;">
-                                    <span class="pointer" (click)="handleWeekChange('left')"><</span>
-                                    <span>{{ currentWeek.week }}</span>
-                                    <span class="pointer" (click)="handleWeekChange('right')">></span>
+                              <div id="cardDetail" class="cardDetail"  style="width: 100%; margin-left: 0px; height: auto;" >
+                                <div class="d-flex justify-content-between p-1 m-2 fw-600 " style="font-size: 12px;">
+                                    <span class="pointer" (click)="handleWeekChange('left')" style="font-size: 15px;">
+                                        <img class="m-2" id="up" height="15" src="../../../assets/img/next (1).svg" alt="img"></span> <span style="font-size: 15px;">{{ currentWeek.week }}
+                                    </span>
+                                    <span class="pointer" (click)="handleWeekChange('right')" style="font-size: 15px;"><img class="m-2" id="up" height="15" src="../../../assets/img/next.svg" alt="img"></span>
                                 </div>
-                                <div class="cardDetailBox" *ngFor="let list of cousesList">
-                                    <div class="d-flex p-3">
-                                        <span style="align-self: center;margin: 0px 15px;">
-                                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path opacity="0.4" d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z" fill="#200E32"/>
-                                            </svg>
-                                        </span>
-                                        <div class="w-100" style="align-self: center; margin-left: 2rem;">
-                                            <h5> Title of course</h5>
-                                            <p class="m-0">This is short discription</p>
-                                            <p class="m-0">Uploaded on: 5th June</p>
+                                <button type="button" class="cardDetailBox btn-block" *ngFor="let list of cousesList" (click)="goToCourse()" style="width: 92%; height:90px;">
+                                        <div class="d-flex p-2">
+                                            <span style="align-self: center;margin: 0px 5px;">
+                                                <img *ngIf="list.type == 'Lecture'" height="20" src="../../../assets/img/google-docs.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Assignment'" height="20" src="../../../assets/img/exam.svg" alt="img">
+                                                    <img *ngIf="list.type == 'Quiz'" height="20" src="../../../assets/img/puzzle-piece.svg" alt="img">
+                                                    
+                                                <!--<svg *ngIf="list.type == 'Lecture'" width="31" height="30"
+                                                    viewBox="0 0 31 30" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M27.1259 10.6748C26.3291 10.6748 25.2737 10.6604 23.9597 10.6604C20.7551 10.6604 18.1201 8.49737 18.1201 5.85936V1.23097C18.1201 0.866859 17.7637 0.570389 17.3216 0.570389H7.98734C3.63123 0.570389 0.110352 3.48616 0.110352 7.05963V22.5667C0.110352 26.3158 3.79898 29.3539 8.35079 29.3539H22.2508C26.5912 29.3539 30.1104 26.4568 30.1104 22.8805V11.3225C30.1104 10.9569 29.7556 10.6619 29.3118 10.6633C28.5657 10.6676 27.6711 10.6748 27.1259 10.6748Z"
+                                                        fill="#200E32" />
+                                                </svg>
+                                                <svg *ngIf="list.type == 'Upcoming'" width="25" height="25"
+                                                    viewBox="0 0 25 25" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M17.595 0H21.8274C23.5803 0 25.0006 1.43231 25.0006 3.19995V7.46815C25.0006 9.23579 23.5803 10.6681 21.8274 10.6681H17.595C15.8422 10.6681 14.4219 9.23579 14.4219 7.46815V3.19995C14.4219 1.43231 15.8422 0 17.595 0Z"
+                                                        fill="#200E32" />
+                                                    <path
+                                                        d="M7.40557 14.3319C9.15839 14.3319 10.5787 15.7642 10.5787 17.5318V21.8C10.5787 23.5665 9.15839 25 7.40557 25H3.17314C1.42031 25 0 23.5665 0 21.8V17.5318C0 15.7642 1.42031 14.3319 3.17314 14.3319H7.40557ZM21.8267 14.3319C23.5795 14.3319 24.9998 15.7642 24.9998 17.5318V21.8C24.9998 23.5665 23.5795 25 21.8267 25H17.5943C15.8415 25 14.4211 23.5665 14.4211 21.8V17.5318C14.4211 15.7642 15.8415 14.3319 17.5943 14.3319H21.8267ZM7.40557 0C9.15839 0 10.5787 1.43231 10.5787 3.19995V7.46816C10.5787 9.2358 9.15839 10.6681 7.40557 10.6681H3.17314C1.42031 10.6681 0 9.2358 0 7.46816V3.19995C0 1.43231 1.42031 0 3.17314 0H7.40557Z"
+                                                        fill="#200E32" />
+                                                </svg>
+                                                <svg *ngIf="list.type == 'Overdue'" width="25" height="25"
+                                                    viewBox="0 0 25 25" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.4"
+                                                        d="M23.6004 22.1574H15.6921C14.9205 22.1574 14.293 22.7948 14.293 23.5787C14.293 24.364 14.9205 25 15.6921 25H23.6004C24.372 25 24.9996 24.364 24.9996 23.5787C24.9996 22.7948 24.372 22.1574 23.6004 22.1574Z"
+                                                        fill="#200E32" />
+                                                    <path
+                                                        d="M10.1509 5.42284L17.6448 11.4783C17.8256 11.6231 17.8564 11.8889 17.7154 12.074L8.83116 23.6505C8.27268 24.3656 7.44966 24.7702 6.56785 24.7851L1.71792 24.8449C1.45925 24.8478 1.23292 24.6687 1.17414 24.4119L0.0718781 19.6195C-0.11918 18.7386 0.0718781 17.8279 0.630356 17.1262L9.55865 5.4945C9.70268 5.30788 9.96869 5.27503 10.1509 5.42284Z"
+                                                        fill="#200E32" />
+                                                    <path opacity="0.4"
+                                                        d="M20.999 7.8684L19.5543 9.6719C19.4088 9.85554 19.1472 9.8854 18.9665 9.73909C17.2102 8.31778 12.713 4.67046 11.4652 3.65972C11.283 3.51043 11.258 3.24468 11.405 3.05955L12.7982 1.3292C14.0621 -0.298133 16.2667 -0.44743 18.045 0.970889L20.0878 2.59822C20.9255 3.25513 21.484 4.12105 21.6751 5.03176C21.8955 6.03354 21.6604 7.01741 20.999 7.8684Z"
+                                                        fill="#200E32" />
+                                                </svg>-->
+                                            </span>
+                                            <div class="w-100" style=" margin-left: 1rem;">
+                                            <div class="d-flex">
+                                                    <h5 class="m-0" style="font-size: 12px; width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><b>{{list.title}}</b></h5>
+                                                    <span *ngIf="list.tag == 'Upcoming'"
+                                                            class="ml-2 upcoming">Upcoming</span>
+                                                        <span *ngIf="list.tag == 'Overdue'"
+                                                            class="ml-2 overdue">Overdue</span>
+                                                </div>
+                                                &nbsp;
+                                                <p class="m-0 " style="font-size: 11px; width: 250px; color:  #757575; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" >{{list.msg}}</p>
+                                                &nbsp;
+                                                <p class="m-0" style="font-size: 10px; color:  #757575; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Uploaded on: {{list.uploaded}}</p>
+                                            </div>
+                                            <button type="button" class="btn" style="align-self: right; margin-right: -10px">
+                                                <img height="20" src="../../../assets/img/download.svg" alt="img">
+                                                <!--<svg width="30" height="28" viewBox="0 0 30 28" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <rect y="0.801559" width="30" height="26.9845"
+                                                        fill="url(#pattern0)" />
+                                                    <defs>
+                                                        <pattern id="pattern0"
+                                                            patternContentUnits="objectBoundingBox" width="1"
+                                                            height="1">
+                                                            <use xlink:href="#image0"
+                                                                transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)" />
+                                                        </pattern>
+                                                        <image id="image0" width="68" height="67"
+                                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII=" />
+                                                    </defs>
+                                                </svg>-->
+                                            </button>
                                         </div>
-                                        <span style="align-self: center;margin: 0px 10px;">
-                                            <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <rect y="0.801559" width="30" height="26.9845" fill="url(#pattern0)"/>
-                                            <defs>
-                                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0" transform="translate(0 -0.0476993) scale(0.0147059 0.0163492)"/>
-                                            </pattern>
-                                            <image id="image0" width="68" height="67" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABDCAYAAAAlFqMKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARfSURBVHhe7ZrNK3VBHMd/z6O8psjOAgspCwslrzsWEgtbShLJzsvSH+CuFElJyUJRVhZKFpZeE8lCJLGxk7e8Rp77PWY89/m5c++Ze+aee/XMp07XmZlzZubjNzPnzrm/PoKQ5Yvf4tMisEIYVgjDCmFYIQwrhOHrsnt/f0+Hh4f09PREGRkZIpW+zsvKyig7O1ukJggI8YO3t7eP5uZmyFceyEe5ROJbhNzc3FBubi7l5+eLlO9cXl7S9fU15eTkiBT/sXMIwwphWCEMK4RhhTCsEIYVwrBCGFYIwwphWCEMK4RhhTCsEIYVwjCyH/L+/k7b29t0cnJCWVlZVFlZSYWFhSL3Ey/7IRcXF7Szs0MPDw9UUlJCVVVVlJKSInINAyFeCHYg7E5YIBAQJT5BOaQHhSgP5KNcKLhP6H1xoD5ezhSehdTU1HykpaWF7dzAwIAoFZsQXB/uGtSHeuOBpzlkbW2NNjc3KS8vT6T8JdhwGhsbo8HBQefcbYjLcrgO1+M+HNSHelG/aTwJOTg4cOYFFVxK8D/rfKqQ+ZFkSFAv6jeNJyGZmZniLzVSytDQEBUVFYnU8CAf5aLJkLipXxdPq8zGxgbV1dW5ajx/F6PCbTmsSOvr61RbWytSzOApQtCYnp4ep3HRcNNJ4FYG6jUtA3h+MJuYmKCOjg5XUkyAelAf6o0HnoWkp6fT5OSkL1KkDNSHeuOBsTd3z8/P1NvbS3Nzc67mFF2kjOnp6bjJAJ4jRBLPSPEjMiTG3+2ajhS/IkNiLEIkJiPFz8iQxO3tP34L0tfXR/Pz8zFFCmS0t7fT1NSUr78ZiSpkf3+fVldXKTU1lZqamqi0tFTkRAfDp7u7W1uKlDEzM6MVGUdHR7SyskKvr6/U2NhI5eXlIkcDCFGxuLgIWf8ce3t7Itcdd3d3H8HOOdcGpUQ9UA7lcZ0OaFdoO3Gg/booIwQbOtXV1U7oS/BYDeu63zIRKW1tbbS0tBQxUhAZra2ttLCwoD1nNDQ0ONEc+qSLoba1taX1AxzlpHp7e0vHx8fi7BNUdnZ25uyQ6YDOoZPorGqi9SID7UG7+GM/2o9+6GB8lVEhpdTX1zudR7QBfOIc6bHIMI1vQgA6i+E2OjpKBQUFTkjjE+dIT7QMoJxDsLGL/Qk+5rHanJ6eet7kRZg/Pj46exom7lVcXOysLqEg8s7Pz79teEfC1wgJBRIQIV5lmCYmIcnWCZPt0R4yAA9MyQYeADmxDBmlkKurK6qoqPg2LgHyko1wO/+Y73Z3d8PmqVAKwUTV1dVFy8vLrrf/kgks5y0tLTQ7O6s1pJRzCG7S2dnpvFr8iaDdaL/u/BJxUsXjcCAQcMbiTwLtRbvRfl2UQ0aCoTM+Pk7Dw8P08vIS8cVUokFU4GXXyMgI9ff3x7T6RBUiwaqDr9Z4FwNJyQY6j9cS2KLQWVU4roX8LyTsSTVZsUIYVgjDCmFYIQwrhGGFMKwQhhXCsEL+gegP5vtJO5j9igYAAAAASUVORK5CYII="/>
-                                            </defs>
-                                            </svg>
-                                        </span>    
-                                    </div>
-                                </div>
-                        
-                            </div>
+                                </button>
+
+                               </div>
+                               
                         </div>
+                        <button type="button" id="float" class="btn float-right"  data-toggle="dropdown" style="position: relative; margin-top: -50px;"><img  height="30" id="img" src="../../../assets/img/plus.svg"></button>
+                        <ul class="dropdown-menu" style="width: 150px;">
+                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#lecture" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;" >lecture</button></li>
+                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#assignment" style="font-size: 16px; border-bottom: 1px solid#c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Assignment</button></li>
+                            <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#quiz" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Quiz</button></li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="profile-tab">
-                <app-discussions></app-discussions>
-
+        <div class="tab-pane fade" style="background: #EBECF0;" id="discussion" role="tabpanel" aria-labelledby="profile-tab">
+            <app-discussions></app-discussions>
         </div>
-        <div class="tab-pane fade" id="grade" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane fade" style="background:  #EBECF0;" id="grade" role="tabpanel" aria-labelledby="contact-tab">
             <app-grade></app-grade>
         </div>
-        <div class="tab-pane fade" id="live" role="tabpanel" aria-labelledby="contact-tab">live</div>
-
+        <div class="tab-pane fade" style="background: #EBECF0;" id="live" role="tabpanel" aria-labelledby="contact-tab">
+        <app-live></app-live>
+        </div>
     </div>
 
 
-
-    <app-footer [type]="'teacher'"></app-footer>
+    <!--<button type="button"  class="btn float-right"  data-toggle="dropdown" style=" position: fixed; margin-top: -120px; right: 0px;"><img  height="30" id="img" src="../../../assets/img/plus.svg"></button>
+    <ul class="dropdown-menu" style="width: 150px;">
+        <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#lecture" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;" >lecture</button></li>
+        <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#assignment" style="font-size: 16px; border-bottom: 1px solid#c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Assignment</button></li>
+        <li><button type="button" class="btn btn-block " data-toggle="modal" data-target="#quiz" style="font-size: 16px; border-bottom: 1px solid #c4c4c4; text-align: left; background-color: #1b2d3f; color: #ffffff;">Quiz</button></li>
+    </ul>-->
+    <div class="modal fade" id="lecture" role="dialog" style="margin-top: 50px;">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              
+              <h4 class="d-flex modal-title"><div style="color: #ffffff; font-size: 25px;">+</div>&nbsp;&nbsp;<div style="padding-top: 5px; font-size: 20px;">Create lecture</div></h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+      
+                    <form action="">
+                      <div class="form-group">
+                        <label for="title" style="font-size: 15px;">Subject</label>
+                        <input type="text" style="font-size: 15px;" class="form-control" id="sub" placeholder="Enter subject" name="sub">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">chapter name</label>
+                        <input type="text" style="font-size: 15px;" class="form-control" id="chap" placeholder="Enter chapter" name="chap">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Description</label>
+                        <input type="textarea" style="font-size: 15px;" class="form-control" id="des" placeholder="Enter description" name="decrip">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Date</label>
+                        <input type="date" style="font-size: 15px;" class="form-control" id="date" placeholder="Enter date" name="date">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Time </label>
+                        <input type="time" style="font-size: 15px;" class="form-control" id="time" placeholder="time" name="time">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Attach File </label>
+                      <div class="custom-file mb-3 " style="font-size: 15px;">
+                        <input type="file" class="custom-file-input" id="customFile" name="filename">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                    </div>
+                      <button type="submit" class="btn btn-block" style="background-color: #1b2d3f; color: #ffffff; font-size: 15px;">Submit</button>
+                    </form>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="modal fade" id="assignment" role="dialog" style="margin-top: 50px;">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              
+              <h4 class="d-flex modal-title"><div style="color: #ffffff; font-size: 25px;">+</div>&nbsp;&nbsp;<div style="padding-top: 5px;font-size: 20px;">Create Assignment</div></h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+      
+                    <form action="">
+                      <div class="form-group">
+                        <label for="title" style="font-size: 15px;">Subject</label>
+                        <input type="text" style="font-size: 15px;" class="form-control" id="sub" placeholder="Enter title" name="sub">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Assignment Name</label>
+                        <input type="text" style="font-size: 15px;" class="form-control" id="name" placeholder="Enter assignment name" name="name">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Description</label>
+                        <input type="textarea" style="font-size: 15px;" class="form-control" id="des" placeholder="Enter description" name="decrip">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Date</label>
+                        <input type="date" style="font-size: 15px;" class="form-control" id="date" placeholder="Enter date" name="date">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Due Date</label>
+                        <input type="date" style="font-size: 15px;" class="form-control" id="ddate" placeholder="Enter date" name="ddate">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Time </label>
+                        <input type="time" style="font-size: 15px;" class="form-control" id="time" placeholder="time" name="time">
+                      </div>
+                      <div class="form-group">
+                        <label for="from" style="font-size: 15px;">Attach File </label>
+                      <div class="custom-file mb-3 " style="font-size: 15px;">
+                        <input type="file" class="custom-file-input" id="customFile" name="filename">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                    </div>
+                      <button type="submit" class="btn btn-block" style="background-color: #1b2d3f; color: #ffffff; font-size: 15px;">Submit</button>
+                    </form>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    <app-footer [type]="'student'"></app-footer>
 </div>
+
+<!--<div *ngIf="isMobileView && openGradeView" class="m-3">
+    <app-assignment></app-assignment>
+</div>-->

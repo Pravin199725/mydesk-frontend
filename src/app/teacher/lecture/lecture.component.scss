@@ -1,0 +1,64 @@
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
+
+
+.courseMonth {
+    font-size: 24px;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
+} 
+.ellipsi{
+    padding-left: 10px;
+  padding-top: 8px;
+  text-overflow: ellipsis;
+  width: 90%;
+  margin-left: -50px;
+  text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .fixed-sidebar {
+    position: fixed;
+    left: 0px;
+    height: 100%;
+  }
+.courseContent{
+    width: 100%;
+  margin-left: 200px;
+}  
+.courseContentActive {
+width: 100%;
+margin-left: 80px !important;
+
+}
+.nav-tabs {
+  font-size: 12px;
+  justify-content: space-around;
+}
+
+.nav-tabs .nav-link {
+  color: #c4c4c4;
+  border: 1px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+  color: white;
+  font-weight: 700;
+  background: none;
+  border-bottom: 5px solid #28baa2;
+}
+
+.courseMonth {
+    font-size: 24px;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
+} 
+

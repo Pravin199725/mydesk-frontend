@@ -1,4 +1,5 @@
-
+@import "../../../assets/sass/base/mixin";
+@import "../../../assets/sass/base/colors";
 
 .header {
     border-bottom: 3px solid black;
@@ -17,10 +18,9 @@ table#customers {
     border-spacing:0 5px;
     .rowData,
     .rowDataMobile { 
-        background: #F2F2F2;
         font-size: 14px;
         td {
-            padding: 15px 0px 15px 10px;
+            padding: 5px 0px 4px 10px;
         }
         td:first-child { 
             border-top-left-radius: 10px;
@@ -42,69 +42,129 @@ table#customers {
 }
 
 
-.submitted {
-    padding: 10px;
+.submit {
+    padding: 2px;
     background: green;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
-    font-size: 14px;
-    width: 70% !important;
+    border: 1px solid green;
+    // width: 25px;
+    font-size: 10px;
+    height: 20px;
+    width: 50% !important;
+    padding-bottom: 10px;
+}
+
+.over {
+    padding: 2px;
+    background: #ffffff;
+    border-radius: 10px;
+    color: red;
+    border: 1px solid red;
+    // width: 25px;
+    font-size: 10px;
+    height: 20px;
+    width: 50% !important;
+    padding-bottom: 10px;
+}
+
+.upcom {
+    padding: 2px;
+    background: white;
+    border-radius: 10px;
+    color: green;
+    border: 1px solid green;
+    // width: 25px;
+    font-size: 10px;
+    height: 20px;
+    width: 50% !important;
+    padding-bottom: 10px;
+}
+
+
+.submitted {
+    padding: 2px;
+    background: green;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid green;
+    font-size: 12px;
+    height: 25px;
+    width: 100px !important;
+    padding-bottom: 10px;
+    margin-top: 6px;
 }
 
 .overdue {
-    padding: 10px;
-    background: white;
-    border-radius: 5px;
+    padding: 2px;
+    background: #ffffff;
+    border-radius: 10px;
     color: red;
-    border: 1px solid green;
-    font-size: 14px;
-    width: 70% !important;
+    border: 1px solid red;
+    // width: 25px;
+    font-size: 12px;
+    height: 25px;
+    width: 100px  !important;
+    padding-bottom: 10px;
+    margin-top: 6px;
 }
 
 .upcoming {
-    padding: 10px;
+    padding: 2px;
     background: white;
-    border-radius: 5px;
-    color: green;
-    border: 1px solid green;
-    font-size: 14px;
-    width: 70% !important;
-}
-
-.submittedMobile {
-    padding: 6px;
-    background: green;
-    border-radius: 5px;
-    // width: 25px;
-    color: white;
-    font-size: 10px;
-    width: 80% !important;
-}
-
-.overdueMobile {
-    padding: 6px;
-    background: white;
-    border-radius: 5px;
-    color: red;
-    border: 1px solid green;
-    // width: 25px;
-    font-size: 10px;
-    width: 80% !important;
-}
-
-.upcomingMobile {
-    padding: 6px;
-    background: white;
-    border-radius: 5px;
+    border-radius: 10px;
     color: green;
     border: 1px solid green;
     // width: 25px;
-    font-size: 10px;
-    width: 80% !important;
+    font-size: 12px;
+    height: 25px;
+    width: 100px !important;
+    padding-bottom: 10px;
+    margin-top: 6px;
 }
 
 .courseMonth {
     font-size: 24px;
     width: 100%;
     text-align: left;
+}   
+.cardDetailBox {
+    margin: 15px;
+    background: #ffffff;
+    border: 0.2px solid #ffffff;
+    overflow: auto;
+    width: 93%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  .m-0{
+    margin: auto;
+    text-align: left;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+  .ellipsis{
+    
+    padding-top: 8px;
+    text-overflow: ellipsis;
+    width: 15em;
+    text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+  .ellipsi{
+      padding-left: 10px;
+    padding-top: 8px;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin-left: -50px;
+    text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+  .courseMonth {
+    font-size: 24px;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
 } 
